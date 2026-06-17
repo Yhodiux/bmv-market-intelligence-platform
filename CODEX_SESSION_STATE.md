@@ -4,6 +4,12 @@
 
 The project currently implements the local Raw, Silver, and Data Quality layers for the BMV Market Intelligence Platform MVP.
 
+The latest pushed commit is:
+
+```text
+c1a2cec Add data quality validation layer
+```
+
 ## Implemented
 
 - Docker Compose pipeline service.
@@ -52,9 +58,12 @@ The latest successful pipeline run generated:
 
 - Raw dataset: `data/raw/market_prices_raw.parquet`
 - Silver dataset: `data/silver/market_prices_silver.parquet`
+- Data quality report: `data/metadata/data_quality_report.json`
 - Row count: `12,570` rows in both Raw and Silver
 - Silver columns: `16`
 - No null values in the expected Silver columns
+- Data quality status: `passed`
+- Data quality checks: `15` passed, `0` failed
 
 Silver derived fields include:
 
@@ -75,7 +84,7 @@ Git may report `dubious ownership` in this environment. For Git inspection comma
 git -c safe.directory=F:/Proyectos/bmv-market-intelligence-platform status --short
 ```
 
-The repository currently appears mostly untracked from Git's perspective in this environment, so avoid assuming a clean baseline.
+The repository was clean and synchronized with `origin/main` after the latest push.
 
 ## Recommended Next Step
 
