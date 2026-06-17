@@ -1,0 +1,56 @@
+{
+  "period": "5y",
+  "interval": "1d",
+  "tickers": [
+    {
+      "ticker": "AMXB.MX",
+      "issuer_name": "America Movil",
+      "sector": "Telecommunications"
+    },
+    {
+      "ticker": "WALMEX.MX",
+      "issuer_name": "Walmart de Mexico",
+      "sector": "Consumer Staples"
+    },
+    {
+      "ticker": "GFNORTEO.MX",
+      "issuer_name": "Grupo Financiero Banorte",
+      "sector": "Financial Services"
+    },
+    {
+      "ticker": "GMEXICOB.MX",
+      "issuer_name": "Grupo Mexico",
+      "sector": "Materials"
+    },
+    {
+      "ticker": "CEMEXCPO.MX",
+      "issuer_name": "Cemex",
+      "sector": "Materials"
+    },
+    {
+      "ticker": "BIMBOA.MX",
+      "issuer_name": "Grupo Bimbo",
+      "sector": "Consumer Staples"
+    },
+    {
+      "ticker": "FEMSAUBD.MX",
+      "issuer_name": "Fomento Economico Mexicano",
+      "sector": "Consumer Staples"
+    },
+    {
+      "ticker": "KOFUBL.MX",
+      "issuer_name": "Coca-Cola FEMSA",
+      "sector": "Consumer Staples"
+    },
+    {
+      "ticker": "TLEVISACPO.MX",
+      "issuer_name": "Grupo Televisa",
+      "sector": "Communication Services"
+    },
+    {
+      "ticker": "KIMBERA.MX",
+      "issuer_name": "Kimberly-Clark de Mexico",
+      "sector": "Consumer Staples"
+    }
+  ]
+}
