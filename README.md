@@ -44,6 +44,13 @@ No local Python installation, cloud account, API token, paid BMV service, or BMV
 
 ## Quick Start
 
+Clone the repository and enter the project folder:
+
+```bash
+git clone https://github.com/Yhodiux/bmv-market-intelligence-platform.git
+cd bmv-market-intelligence-platform
+```
+
 Run the full local pipeline:
 
 ```bash
