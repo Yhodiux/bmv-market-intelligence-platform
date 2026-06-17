@@ -53,6 +53,24 @@ http://localhost:8000/docs
 - [Data Products](docs/architecture/data_products.md)
 - [Demo Guide](docs/demo_guide.md)
 
+## Demo Preview
+
+### Dashboard Overview
+
+![Dashboard overview](docs/screenshots/dashboard_overview.png)
+
+### Dashboard Analytics
+
+![Dashboard analytics](docs/screenshots/dashboard_analytics.png)
+
+### AI Agent
+
+![Dashboard AI Agent](docs/screenshots/dashboard_ai_agent.png)
+
+### API Guardrails
+
+![Ask guardrail](docs/screenshots/ask_guardrail.png)
+
 ## Run pipeline
 
 This pipeline downloads daily historical prices from Yahoo Finance, writes raw Parquet files under `data/raw/`, builds the standardized Silver dataset under `data/silver/`, writes a data quality report under `data/metadata/`, and generates Gold data products under `data/gold/`.
