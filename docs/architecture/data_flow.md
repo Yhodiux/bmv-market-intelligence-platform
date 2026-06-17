@@ -31,6 +31,26 @@ This MVP does not use BMV Web Services because those services require commercial
 
 Yahoo Finance is used through `yfinance` as the technical data source because it provides public historical daily prices without credentials. The business domain remains focused on Mexican market intelligence and BMV-related data products.
 
+## Source Assessment
+
+BMV was evaluated as the preferred official source for the MVP. The public BMV website exposes market tables and issuer statistics, but the public pages are designed mainly for current or delayed consultation rather than simple historical OHLCV downloads by issuer.
+
+BMV also offers more complete market data products, including historical and closing information, but those are commercial information products distributed through controlled channels such as email, FTP, or authorized services. BMV Web Services also exist, including delayed issuer data, but they require user/password or token-based access.
+
+Because of that, using BMV public pages directly would have limited the MVP in two ways:
+
+- Public pages would provide current or delayed snapshots rather than an immediately available historical dataset.
+- Building history from snapshots would require a scheduled collector running over time, for example every 20 minutes, and would still depend on page structure, access rules, and source availability.
+
+For a reproducible technical assessment, the project uses Yahoo Finance as a public historical data source with similar issuer market data characteristics. This keeps the pipeline executable by any reviewer without paid BMV access while preserving the architecture needed to later replace the ingestion layer with authorized BMV feeds, databases, SFTP delivery, or Web Services in a production environment.
+
+Reference sources reviewed:
+
+- BMV issuer statistics pages: `https://www.bmv.com.mx/es/emisoras/estadisticas/`
+- BMV information products and databases: `https://www.bmv.com.mx/es/productos-de-informacion/bases-de-datos`
+- BMV Web Services documentation: `https://www.bmv.com.mx/work/models/Grupo_BMV/Resource/1996/6/images/web_services_190829.pdf`
+- BMV database price list: `https://www.bmv.com.mx/work/models/Grupo_BMV/Resource/1192/10/images/LISTA%20DE%20PRECIOS%20BASES%20DE%20DATOS%202026.pdf`
+
 ## Runtime
 
 The project runs locally through Docker Compose.
