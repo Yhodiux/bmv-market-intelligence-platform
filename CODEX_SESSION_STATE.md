@@ -2,7 +2,7 @@
 
 ## Current Status
 
-The project currently implements the local Raw, Silver, and Data Quality layers for the BMV Market Intelligence Platform MVP.
+The project currently implements the local Raw, Silver, Gold, Metadata, Data Quality, and API layers for the BMV Market Intelligence Platform MVP.
 
 The latest pushed commit is:
 
@@ -20,6 +20,14 @@ c1a2cec Add data quality validation layer
 - Silver Parquet output under `data/silver/`.
 - Data quality validation script.
 - Data quality JSON report under `data/metadata/`.
+- Gold data product build script.
+- Gold Parquet outputs under `data/gold/`.
+- Dataset metadata catalog under `data/metadata/`.
+- FastAPI service exposing Gold data products.
+- Deterministic AI Agent endpoint grounded in Gold datasets.
+- Automated pytest suite for Gold outputs, metadata, API, and AI Agent behavior.
+- Architecture documentation for data flow and Gold data products.
+- Streamlit dashboard with Gold dataset preview, executive KPIs, performance charts, risk/volatility charts, liquidity/volume views, AI insights, and an embedded AI Agent question selector.
 
 ## Important Adjustments Made
 
@@ -36,9 +44,26 @@ c1a2cec Add data quality validation layer
 - `src/ingestion/ingest_yfinance.py`
 - `src/transformation/build_silver.py`
 - `src/quality/validate_data_quality.py`
+- `src/gold/build_gold.py`
+- `src/metadata/build_metadata.py`
+- `src/api/main.py`
+- `src/ai_agent/market_agent.py`
+- `tests/test_gold_build.py`
+- `tests/test_metadata.py`
+- `tests/test_market_agent.py`
+- `tests/test_api.py`
+- `docs/architecture/data_flow.md`
+- `docs/architecture/data_products.md`
+- `src/dashboard/app.py`
 - `data/raw/market_prices_raw.parquet`
 - `data/silver/market_prices_silver.parquet`
 - `data/metadata/data_quality_report.json`
+- `data/metadata/datasets_metadata.json`
+- `data/gold/gold_performance.parquet`
+- `data/gold/gold_volatility.parquet`
+- `data/gold/gold_liquidity.parquet`
+- `data/gold/gold_market_trends.parquet`
+- `data/gold/gold_ai_insights.parquet`
 
 ## Reproduce Current Pipeline
 
@@ -51,10 +76,18 @@ The pipeline now executes:
 1. `python src/ingestion/ingest_yfinance.py`
 2. `python src/transformation/build_silver.py`
 3. `python src/quality/validate_data_quality.py`
+4. `python src/gold/build_gold.py`
+5. `python src/metadata/build_metadata.py`
 
 ## Last Successful Validation
 
-The latest successful pipeline run generated:
+The latest successful full pipeline run was executed with:
+
+```bash
+docker compose run --rm pipeline
+```
+
+It generated:
 
 - Raw dataset: `data/raw/market_prices_raw.parquet`
 - Silver dataset: `data/silver/market_prices_silver.parquet`
@@ -64,6 +97,23 @@ The latest successful pipeline run generated:
 - No null values in the expected Silver columns
 - Data quality status: `passed`
 - Data quality checks: `15` passed, `0` failed
+- Gold performance rows: `12,570`
+- Gold volatility rows: `12,570`
+- Gold liquidity rows: `12,570`
+- Gold market trends rows: `12,570`
+- Gold AI insights rows: `10`
+
+Post-pipeline tests were executed with:
+
+```bash
+docker compose run --rm tests
+```
+
+Result:
+
+```text
+9 passed
+```
 
 Silver derived fields include:
 
@@ -86,12 +136,47 @@ git -c safe.directory=F:/Proyectos/bmv-market-intelligence-platform status --sho
 
 The repository was clean and synchronized with `origin/main` after the latest push.
 
+## API
+
+Start the local API with:
+
+```bash
+docker compose up api
+```
+
+Available endpoints:
+
+- `GET /health`
+- `GET /datasets`
+- `GET /performance`
+- `GET /volatility`
+- `GET /liquidity`
+- `GET /market-trends`
+- `GET /ai-insights`
+- `POST /ask`
+
+## Dashboard
+
+Start the local dashboard with:
+
+```bash
+docker compose up dashboard
+```
+
+Then open:
+
+```text
+http://localhost:8501
+```
+
+## Tests
+
+Run:
+
+```bash
+docker compose run --rm tests
+```
+
 ## Recommended Next Step
 
-Implement Gold datasets:
-
-- `gold_performance`
-- `gold_volatility`
-- `gold_liquidity`
-- `gold_market_trends`
-- `gold_ai_insights`
+Review the project end to end, then create a clean commit/checkpoint before adding optional refinements.

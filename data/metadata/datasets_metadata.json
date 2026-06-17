@@ -1,0 +1,160 @@
+{
+  "generated_at": "2026-06-17T20:01:15.274518+00:00",
+  "dataset_count": 7,
+  "datasets": [
+    {
+      "dataset_name": "market_prices_raw",
+      "layer": "raw",
+      "record_count": 12570,
+      "column_count": 8,
+      "columns": [
+        "date",
+        "ticker",
+        "open",
+        "high",
+        "low",
+        "close",
+        "adj_close",
+        "volume"
+      ],
+      "created_at": "2026-06-17T20:01:15.205313+00:00",
+      "source": "Yahoo Finance via yfinance",
+      "business_description": "Historical daily market prices preserving the source market data structure.",
+      "path": "data/raw/market_prices_raw.parquet"
+    },
+    {
+      "dataset_name": "market_prices_silver",
+      "layer": "silver",
+      "record_count": 12570,
+      "column_count": 16,
+      "columns": [
+        "date",
+        "ticker",
+        "open_price",
+        "high_price",
+        "low_price",
+        "close_price",
+        "adjusted_close",
+        "volume",
+        "daily_return",
+        "intraday_volatility",
+        "price_range",
+        "volume_category",
+        "trend_flag",
+        "issuer_name",
+        "sector",
+        "ingestion_timestamp"
+      ],
+      "created_at": "2026-06-17T20:01:15.221228+00:00",
+      "source": "Raw market prices and ticker metadata",
+      "business_description": "Cleaned, standardized, and enriched market prices ready for data products.",
+      "path": "data/silver/market_prices_silver.parquet"
+    },
+    {
+      "dataset_name": "gold_performance",
+      "layer": "gold",
+      "record_count": 12570,
+      "column_count": 9,
+      "columns": [
+        "ticker",
+        "issuer_name",
+        "sector",
+        "date",
+        "return_7d",
+        "return_30d",
+        "return_90d",
+        "performance_rank_30d",
+        "performance_category"
+      ],
+      "created_at": "2026-06-17T20:01:15.232566+00:00",
+      "source": "Silver market prices",
+      "business_description": "Issuer performance product with 7, 30, and 90 day returns and rankings.",
+      "path": "data/gold/gold_performance.parquet"
+    },
+    {
+      "dataset_name": "gold_volatility",
+      "layer": "gold",
+      "record_count": 12570,
+      "column_count": 8,
+      "columns": [
+        "ticker",
+        "issuer_name",
+        "sector",
+        "date",
+        "volatility_7d",
+        "volatility_30d",
+        "volatility_90d",
+        "risk_level"
+      ],
+      "created_at": "2026-06-17T20:01:15.243688+00:00",
+      "source": "Silver market prices",
+      "business_description": "Risk product with rolling volatility metrics and risk levels.",
+      "path": "data/gold/gold_volatility.parquet"
+    },
+    {
+      "dataset_name": "gold_liquidity",
+      "layer": "gold",
+      "record_count": 12570,
+      "column_count": 11,
+      "columns": [
+        "ticker",
+        "issuer_name",
+        "sector",
+        "date",
+        "volume",
+        "avg_volume_30d",
+        "max_volume_30d",
+        "min_volume_30d",
+        "volume_variation_pct",
+        "liquidity_score",
+        "liquidity_rank"
+      ],
+      "created_at": "2026-06-17T20:01:15.255703+00:00",
+      "source": "Silver market prices",
+      "business_description": "Liquidity product with volume windows, variation, score, and rank.",
+      "path": "data/gold/gold_liquidity.parquet"
+    },
+    {
+      "dataset_name": "gold_market_trends",
+      "layer": "gold",
+      "record_count": 12570,
+      "column_count": 9,
+      "columns": [
+        "ticker",
+        "issuer_name",
+        "sector",
+        "date",
+        "trend_flag",
+        "sector_avg_return_30d",
+        "issuer_return_30d",
+        "market_participation",
+        "trend_strength"
+      ],
+      "created_at": "2026-06-17T20:01:15.266424+00:00",
+      "source": "Silver market prices",
+      "business_description": "Trend product comparing issuer movement, sector returns, and participation.",
+      "path": "data/gold/gold_market_trends.parquet"
+    },
+    {
+      "dataset_name": "gold_ai_insights",
+      "layer": "gold",
+      "record_count": 10,
+      "column_count": 9,
+      "columns": [
+        "ticker",
+        "issuer_name",
+        "sector",
+        "date",
+        "insight_title",
+        "insight_summary",
+        "business_interpretation",
+        "recommended_question",
+        "severity"
+      ],
+      "created_at": "2026-06-17T20:01:15.274423+00:00",
+      "source": "Gold market intelligence signals",
+      "business_description": "AI-ready market insight prompts and interpretations grounded in Gold datasets.",
+      "path": "data/gold/gold_ai_insights.parquet"
+    }
+  ]
+}

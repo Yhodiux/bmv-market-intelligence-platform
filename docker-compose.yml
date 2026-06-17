@@ -8,4 +8,39 @@ services:
       sh -c "pip install --no-cache-dir -r requirements.txt &&
              python src/ingestion/ingest_yfinance.py &&
              python src/transformation/build_silver.py &&
-             python src/quality/validate_data_quality.py"
+             python src/quality/validate_data_quality.py &&
+             python src/gold/build_gold.py &&
+             python src/metadata/build_metadata.py"
+
+  api:
+    image: python:3.11-slim
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    command: >
+      sh -c "pip install --no-cache-dir -r requirements.txt &&
+             uvicorn src.api.main:app --host 0.0.0.0 --port 8000"
+
+  tests:
+    image: python:3.11-slim
+    working_dir: /app
+    volumes:
+      - .:/app
+    command: >
+      sh -c "pip install --no-cache-dir -r requirements.txt &&
+             pytest -q"
+
+  dashboard:
+    image: python:3.11-slim
+    working_dir: /app
+    environment:
+      PYTHONPATH: /app
+    volumes:
+      - .:/app
+    ports:
+      - "8501:8501"
+    command: >
+      sh -c "pip install --no-cache-dir -r requirements.txt &&
+             streamlit run src/dashboard/app.py --server.address 0.0.0.0 --server.port 8501"
