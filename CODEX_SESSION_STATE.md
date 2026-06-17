@@ -2,12 +2,12 @@
 
 ## Current Status
 
-The project currently implements the local Raw, Silver, Gold, Metadata, Data Quality, and API layers for the BMV Market Intelligence Platform MVP.
+The project currently implements the local Raw, Silver, Gold, Metadata, Data Quality, API, Dashboard, AI Agent, documentation, and demo preview layers for the BMV Market Intelligence Platform MVP.
 
 The latest pushed commit is:
 
 ```text
-c1a2cec Add data quality validation layer
+3e6f295 Add demo screenshots to README
 ```
 
 ## Implemented
@@ -29,6 +29,7 @@ c1a2cec Add data quality validation layer
 - Architecture documentation for data flow and Gold data products.
 - Demo guide for reviewers.
 - Executive summary with dashboard/API screenshots.
+- README demo preview section with dashboard and API screenshots.
 - Streamlit dashboard with Gold dataset preview, executive KPIs, performance charts, risk/volatility charts, liquidity/volume views, AI insights, and an embedded AI Agent question selector.
 
 ## Important Adjustments Made
@@ -59,6 +60,11 @@ c1a2cec Add data quality validation layer
 - `docs/demo_guide.md`
 - `docs/executive_summary.md`
 - `docs/screenshots/`
+- `docs/screenshots/dashboard_overview.png`
+- `docs/screenshots/dashboard_analytics.png`
+- `docs/screenshots/dashboard_ai_agent.png`
+- `docs/screenshots/ask_best_performance.png`
+- `docs/screenshots/ask_guardrail.png`
 - `src/dashboard/app.py`
 - `data/raw/market_prices_raw.parquet`
 - `data/silver/market_prices_silver.parquet`
@@ -120,6 +126,12 @@ Result:
 9 passed
 ```
 
+The latest post-outage validation was also confirmed by the user:
+
+```text
+9 passed
+```
+
 Silver derived fields include:
 
 - `daily_return`
@@ -139,7 +151,11 @@ Git may report `dubious ownership` in this environment. For Git inspection comma
 git -c safe.directory=F:/Proyectos/bmv-market-intelligence-platform status --short
 ```
 
-The repository was clean and synchronized with `origin/main` after the latest push.
+The repository was clean and synchronized with `origin/main` after the latest push to:
+
+```text
+3e6f295 Add demo screenshots to README
+```
 
 ## API
 
@@ -184,4 +200,8 @@ docker compose run --rm tests
 
 ## Recommended Next Step
 
-Review the project end to end, then create a clean commit/checkpoint before adding optional refinements.
+Optional next steps:
+
+- Review the GitHub README rendering with screenshots.
+- Start the dashboard and API for a final live demo check.
+- Add a formal PPTX or PDF presentation only if the delivery requires that format.
