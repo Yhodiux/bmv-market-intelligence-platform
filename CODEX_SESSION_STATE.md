@@ -7,7 +7,7 @@ The project currently implements the local Raw, Silver, Gold, Metadata, Data Qua
 The latest pushed commit is:
 
 ```text
-3e6f295 Add demo screenshots to README
+6bec892 Add supported API question screenshot to README
 ```
 
 ## Implemented
@@ -154,7 +154,7 @@ git -c safe.directory=F:/Proyectos/bmv-market-intelligence-platform status --sho
 The repository was clean and synchronized with `origin/main` after the latest push to:
 
 ```text
-3e6f295 Add demo screenshots to README
+6bec892 Add supported API question screenshot to README
 ```
 
 ## API
