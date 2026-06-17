@@ -7,7 +7,7 @@ The project currently implements the local Raw, Silver, Gold, Metadata, Data Qua
 The latest delivery-content commit is:
 
 ```text
-74fc09e Add operational readiness documentation
+7f4c26d Add Mermaid data flow diagram
 ```
 
 ## Implemented
@@ -28,6 +28,7 @@ The latest delivery-content commit is:
 - Automated pytest suite for Gold outputs, metadata, API, and AI Agent behavior.
 - Architecture documentation for data flow and Gold data products.
 - Data flow documentation includes Silver and Gold transformation highlights.
+- Data flow documentation includes a Mermaid architecture diagram rendered by GitHub.
 - AWS cloud roadmap documenting how to migrate the local MVP into managed cloud storage, orchestration, API serving, monitoring, security, and monetization enablement.
 - Data contracts documentation covering Raw, Silver, Gold, Metadata, API contracts, enforcement, ownership, and change management.
 - Operational readiness documentation covering failure handling, blocking quality checks, operational metrics, monitoring, production roadmap, monetized API, AI assistant grounding, and customer entitlements.
@@ -170,7 +171,7 @@ git -c safe.directory=F:/Proyectos/bmv-market-intelligence-platform status --sho
 The repository was clean and synchronized with `origin/main` after the latest delivery-content push to:
 
 ```text
-74fc09e Add operational readiness documentation
+7f4c26d Add Mermaid data flow diagram
 ```
 
 ## API
