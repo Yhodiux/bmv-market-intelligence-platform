@@ -94,6 +94,7 @@ http://localhost:8000/docs
 - [Data Flow Architecture](docs/architecture/data_flow.md) including transformation highlights
 - [Cloud Roadmap](docs/architecture/cloud_roadmap.md)
 - [Data Contracts](docs/architecture/data_contracts.md)
+- [Operational Readiness](docs/architecture/operational_readiness.md)
 - [Data Products](docs/architecture/data_products.md)
 - [Demo Guide](docs/demo_guide.md)
 
