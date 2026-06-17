@@ -7,7 +7,7 @@ The project currently implements the local Raw, Silver, Gold, Metadata, Data Qua
 The latest delivery-content commit is:
 
 ```text
-1a31f33 Document transformation highlights
+7f99bdb Add AWS cloud roadmap
 ```
 
 ## Implemented
@@ -28,6 +28,7 @@ The latest delivery-content commit is:
 - Automated pytest suite for Gold outputs, metadata, API, and AI Agent behavior.
 - Architecture documentation for data flow and Gold data products.
 - Data flow documentation includes Silver and Gold transformation highlights.
+- AWS cloud roadmap documenting how to migrate the local MVP into managed cloud storage, orchestration, API serving, monitoring, security, and monetization enablement.
 - Demo guide for reviewers.
 - Executive summary with dashboard/API screenshots.
 - README demo preview section with dashboard and API screenshots.
@@ -64,6 +65,7 @@ The latest delivery-content commit is:
 - `tests/test_api.py`
 - `docs/architecture/data_flow.md`
 - `docs/architecture/data_products.md`
+- `docs/architecture/cloud_roadmap.md`
 - `docs/business_pitch.md`
 - `docs/demo_guide.md`
 - `docs/executive_summary.md`
@@ -164,7 +166,7 @@ git -c safe.directory=F:/Proyectos/bmv-market-intelligence-platform status --sho
 The repository was clean and synchronized with `origin/main` after the latest delivery-content push to:
 
 ```text
-1a31f33 Document transformation highlights
+7f99bdb Add AWS cloud roadmap
 ```
 
 ## API
