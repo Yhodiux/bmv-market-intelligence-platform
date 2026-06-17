@@ -4,7 +4,7 @@
 
 The project currently implements the local Raw, Silver, Gold, Metadata, Data Quality, API, Dashboard, AI Agent, documentation, and demo preview layers for the BMV Market Intelligence Platform MVP.
 
-The latest pushed commit is:
+The latest delivery-content commit is:
 
 ```text
 6bec892 Add supported API question screenshot to README
@@ -151,7 +151,7 @@ Git may report `dubious ownership` in this environment. For Git inspection comma
 git -c safe.directory=F:/Proyectos/bmv-market-intelligence-platform status --short
 ```
 
-The repository was clean and synchronized with `origin/main` after the latest push to:
+The repository was clean and synchronized with `origin/main` after the latest delivery-content push to:
 
 ```text
 6bec892 Add supported API question screenshot to README
