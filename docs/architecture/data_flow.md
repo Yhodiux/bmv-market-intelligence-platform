@@ -20,6 +20,9 @@ flowchart LR
     Gold --> API[FastAPI]
     Gold --> Dashboard[Streamlit Dashboard]
     Gold --> Agent[AI Agent]
+    API --> Consumers[Business Consumers / Monetized Data Products]
+    Dashboard --> Consumers
+    Agent --> Consumers
 ```
 
 ## Scope
