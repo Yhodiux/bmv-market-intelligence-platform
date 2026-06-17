@@ -7,7 +7,7 @@ The project currently implements the local Raw, Silver, Gold, Metadata, Data Qua
 The latest delivery-content commit is:
 
 ```text
-6bec892 Add supported API question screenshot to README
+bd9995b Move internal project notes under docs
 ```
 
 ## Implemented
@@ -31,6 +31,7 @@ The latest delivery-content commit is:
 - Executive summary with dashboard/API screenshots.
 - README demo preview section with dashboard and API screenshots.
 - Streamlit dashboard with Gold dataset preview, executive KPIs, performance charts, risk/volatility charts, liquidity/volume views, AI insights, and an embedded AI Agent question selector.
+- Internal project notes moved under `docs/internal/` so the repository root stays clean for reviewers.
 
 ## Important Adjustments Made
 
@@ -59,6 +60,8 @@ The latest delivery-content commit is:
 - `docs/architecture/data_products.md`
 - `docs/demo_guide.md`
 - `docs/executive_summary.md`
+- `docs/internal/CODEX_SESSION_STATE.md`
+- `docs/internal/PROJECT_CONTEXT_FOR_CODEX.md`
 - `docs/screenshots/`
 - `docs/screenshots/dashboard_overview.png`
 - `docs/screenshots/dashboard_analytics.png`
@@ -154,7 +157,7 @@ git -c safe.directory=F:/Proyectos/bmv-market-intelligence-platform status --sho
 The repository was clean and synchronized with `origin/main` after the latest delivery-content push to:
 
 ```text
-6bec892 Add supported API question screenshot to README
+bd9995b Move internal project notes under docs
 ```
 
 ## API
@@ -198,10 +201,25 @@ Run:
 docker compose run --rm tests
 ```
 
-## Recommended Next Step
+## Final Delivery Status
 
-Optional next steps:
+The project is ready to be sent by repository link.
 
-- Review the GitHub README rendering with screenshots.
-- Start the dashboard and API for a final live demo check.
-- Add a formal PPTX or PDF presentation only if the delivery requires that format.
+Recommended delivery message:
+
+```text
+Hola, comparto el repositorio del proyecto:
+
+https://github.com/Yhodiux/bmv-market-intelligence-platform
+
+El proyecto implementa un MVP local de Data Engineering + AI para inteligencia de mercado mexicana/BMV. Incluye pipeline Raw/Silver/Gold, validaciones de calidad, catalogo de metadata, API FastAPI, dashboard Streamlit, AI Agent con respuestas fundamentadas en datasets Gold, documentacion y screenshots de demo.
+
+Se puede ejecutar localmente con Docker:
+
+docker compose run --rm pipeline
+docker compose run --rm tests
+docker compose up dashboard
+docker compose up api
+
+La suite de pruebas queda validada con 9 tests passing.
+```
