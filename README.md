@@ -8,6 +8,31 @@ The platform transforms public Mexican market data into governed, reusable, AI-r
 Public Market Data -> Raw -> Silver -> Quality -> Gold -> Metadata -> API -> AI Agent
 ```
 
+## Business Value
+
+This project is not only a price-data pipeline. It demonstrates how market data can be packaged as a business-ready intelligence product.
+
+The platform helps a market data business, exchange, issuer relations team, or financial intelligence provider:
+
+- Convert raw public market prices into reusable data products.
+- Offer performance, volatility, liquidity, trend, and AI-ready insight datasets.
+- Expose governed datasets through APIs for downstream customers and applications.
+- Give analysts and business users a dashboard for fast market monitoring.
+- Use an AI Agent that answers only from controlled Gold datasets, reducing hallucination risk.
+- Create a foundation for premium subscriptions, executive reports, alerts, and sector intelligence products.
+
+## Monetization Strategy
+
+The Gold layer is designed as the commercial product layer. Each dataset answers a business question that can become a paid feature:
+
+- **API subscriptions:** endpoints for performance, volatility, liquidity, trends, and insights.
+- **Premium dashboard:** analyst-facing market intelligence views for monitoring issuers and sectors.
+- **Market alerts:** unusual volume, elevated volatility, underperformance, or sustained growth signals.
+- **Executive reports:** recurring summaries generated from governed Gold datasets.
+- **AI assistant:** a controlled question-answering interface over trusted market intelligence products.
+
+The commercial idea is simple: the value is not the raw price history; the value is the governed layer that turns data into decisions, APIs, alerts, and explainable AI responses.
+
 ## Quick Start
 
 Run the full local pipeline:
@@ -48,6 +73,7 @@ http://localhost:8000/docs
 
 ## Architecture
 
+- [Business Pitch](docs/business_pitch.md)
 - [Executive Summary](docs/executive_summary.md)
 - [Data Flow Architecture](docs/architecture/data_flow.md)
 - [Data Products](docs/architecture/data_products.md)
