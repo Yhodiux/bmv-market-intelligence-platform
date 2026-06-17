@@ -7,7 +7,7 @@ The project currently implements the local Raw, Silver, Gold, Metadata, Data Qua
 The latest delivery-content commit is:
 
 ```text
-08a9b8e Add business pitch and monetization framing
+167180e Document local execution prerequisites
 ```
 
 ## Implemented
@@ -31,6 +31,7 @@ The latest delivery-content commit is:
 - Executive summary with dashboard/API screenshots.
 - README demo preview section with dashboard and API screenshots.
 - README business value and monetization strategy sections.
+- README prerequisites section for external local execution.
 - Business pitch document for remote evaluation and business-facing delivery.
 - Streamlit dashboard with Gold dataset preview, executive KPIs, performance charts, risk/volatility charts, liquidity/volume views, AI insights, and an embedded AI Agent question selector.
 - Internal project notes moved under `docs/internal/` so the repository root stays clean for reviewers.
@@ -160,7 +161,7 @@ git -c safe.directory=F:/Proyectos/bmv-market-intelligence-platform status --sho
 The repository was clean and synchronized with `origin/main` after the latest delivery-content push to:
 
 ```text
-08a9b8e Add business pitch and monetization framing
+167180e Document local execution prerequisites
 ```
 
 ## API
