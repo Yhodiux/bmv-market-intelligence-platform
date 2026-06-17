@@ -95,6 +95,19 @@ sector
 ingestion_timestamp
 ```
 
+Transformation highlights:
+
+- Converts source-specific column names into business-readable fields such as `open_price`, `close_price`, and `adjusted_close`.
+- Enforces date, ticker, price, and volume typing before downstream product generation.
+- Sorts data by issuer and date to support time-series calculations.
+- Calculates daily return, intraday volatility, and price range as reusable market signals.
+- Classifies daily issuer movement as `Bullish`, `Bearish`, or `Neutral`.
+- Categorizes volume by issuer into `Low`, `Medium`, and `High` activity bands.
+- Enriches every market record with issuer name and sector metadata.
+- Fails the pipeline if configured issuer metadata is missing.
+
+This layer turns raw market observations into clean, enriched analytical records that can safely feed quality checks, Gold data products, dashboards, APIs, and AI responses.
+
 ### Data Quality
 
 The quality layer validates Raw and Silver outputs before Gold data products are generated.
@@ -130,6 +143,19 @@ data/gold/gold_ai_insights.parquet
 ```
 
 These datasets are designed for API consumption, dashboards, and grounded AI responses.
+
+Gold transformation highlights:
+
+- Computes 7-day, 30-day, and 90-day issuer returns for performance analysis.
+- Computes rolling volatility windows to support risk classification.
+- Builds daily issuer rankings for performance and liquidity.
+- Calculates 30-day average, maximum, and minimum volume windows.
+- Detects volume variation against recent issuer activity.
+- Compares issuer returns against sector averages.
+- Measures market participation within each sector.
+- Converts quantitative signals into AI-ready insight titles, summaries, business interpretations, and recommended follow-up questions.
+
+The Gold layer is intentionally shaped around business questions instead of generic tables. This makes the outputs easier to expose as APIs, dashboard sections, alerts, reports, and controlled AI answers.
 
 ### Metadata
 
