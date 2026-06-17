@@ -33,6 +33,15 @@ The Gold layer is designed as the commercial product layer. Each dataset answers
 
 The commercial idea is simple: the value is not the raw price history; the value is the governed layer that turns data into decisions, APIs, alerts, and explainable AI responses.
 
+## Prerequisites
+
+- Docker Desktop
+- Docker Compose
+- Internet access for Yahoo Finance downloads
+- Available local ports: `8000` for the API and `8501` for the dashboard
+
+No local Python installation, cloud account, API token, paid BMV service, or BMV credentials are required.
+
 ## Quick Start
 
 Run the full local pipeline:
