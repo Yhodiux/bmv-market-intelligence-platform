@@ -7,19 +7,20 @@ The BMV Market Intelligence Platform is a local, Docker-based MVP that transform
 The platform demonstrates the full chain:
 
 ```text
-Public Market Data -> Raw -> Silver -> Quality -> Gold -> Metadata -> API -> AI Agent
+Public Market Data -> Raw -> Silver -> Quality -> Gold -> Metadata -> API -> Governed AI Agent
 ```
 
 ```mermaid
 flowchart LR
-    Source[Public Market Data] --> Raw[Raw Zone]
+    Source[Public Market Data] --> Ingestion[Ingestion]
+    Ingestion --> Raw[Raw Zone]
     Raw --> Silver[Silver Zone]
     Silver --> Quality[Data Quality Gate]
     Quality --> Gold[Gold Data Products]
     Gold --> Metadata[Metadata Catalog]
     Gold --> API[FastAPI]
     Gold --> Dashboard[Streamlit Dashboard]
-    Gold --> Agent[AI Agent]
+    Gold --> Agent[Governed AI Agent]
     API --> Consumers[Business Consumers / Monetized Data Products]
     Dashboard --> Consumers
     Agent --> Consumers
@@ -230,12 +231,19 @@ GET /volatility
 GET /liquidity
 GET /market-trends
 GET /ai-insights
+GET /questions
 POST /ask
+POST /ask-llm
 ```
 
-### AI Agent
+### Governed AI Agent
 
-The AI Agent is deterministic and grounded in Gold datasets. It does not call an external LLM and does not answer outside its supported market intelligence scope.
+The platform exposes a hybrid governed AI layer:
+
+- `POST /ask` uses a deterministic agent for supported, fully auditable market intelligence questions.
+- `POST /ask-llm` uses an optional LLM-governed assistant. It retrieves structured context from Gold datasets first, then asks the model to write a concise answer from that evidence only.
+
+The value is governance, traceability, and hallucination control: answers are generated only from curated Gold products, include supporting data points, and reject unsupported, out-of-domain, predictive, or advisory questions.
 
 Supported question families:
 
@@ -244,8 +252,23 @@ Supported question families:
 - Sector volatility.
 - Unusual volume behavior.
 - Relevant market insights.
+- Weakest 30-day performance.
+- Highest liquidity.
+- High-risk issuers.
+- Strongest sectors by 30-day performance.
+- Latest market snapshot.
+- Single-issuer summaries.
+- Two-issuer comparisons.
 
-If the question is outside the supported scope, the agent returns suggested supported questions instead of inventing an answer.
+If the question is outside the supported scope, the deterministic agent returns suggested supported questions instead of inventing an answer. `GET /questions` exposes the current governed question set for API consumers and the dashboard.
+
+The LLM-governed assistant does not use embeddings or external retrieval in this MVP. It uses structured retrieval over current Gold Parquet datasets:
+
+- Ticker questions select latest issuer evidence across performance, volatility, liquidity, and trends.
+- Sector questions aggregate latest issuer evidence by sector.
+- Market questions build a compact packet with latest snapshot, top/bottom performers, liquidity, volatility, and AI-ready insights.
+
+Model-backed answers require `OPENAI_API_KEY`. Without it, `/ask-llm` returns a controlled configuration message plus the evidence packet that would be sent to the model.
 
 ## Quality Gates
 
@@ -254,7 +277,8 @@ The automated test suite validates the key project contracts:
 - Gold datasets are generated with expected columns and row counts.
 - Metadata describes the current datasets.
 - API endpoints return records.
-- The AI Agent answers supported questions and rejects unsupported questions.
+- The deterministic agent answers supported questions and rejects unsupported questions.
+- The LLM-governed assistant builds Gold evidence and rejects out-of-domain, predictive, and advisory questions before any model call.
 
 Run:
 

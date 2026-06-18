@@ -12,6 +12,7 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
+from src.ai_agent.llm_agent import answer_question_llm
 from src.ai_agent.market_agent import SUPPORTED_QUESTIONS, answer_question
 
 DATA_DIR = PROJECT_ROOT / "data"
@@ -339,8 +340,9 @@ def render_ai_insights_section(datasets: dict[str, pd.DataFrame]) -> None:
 def render_ai_agent_section() -> None:
     st.subheader("Ask the Market Intelligence Agent")
 
-    selected_question = st.selectbox("Question", SUPPORTED_QUESTIONS)
-    response = answer_question(selected_question)
+    selected_question = st.selectbox("Suggested question", SUPPORTED_QUESTIONS)
+    question = st.text_input("Question", value=selected_question)
+    response = answer_question(question)
 
     st.markdown("**Answer**")
     st.write(response["answer"])
@@ -353,6 +355,40 @@ def render_ai_agent_section() -> None:
         st.dataframe(data_points, use_container_width=True, hide_index=True)
     else:
         st.info("No data points returned for this question.")
+
+
+def render_llm_agent_section() -> None:
+    st.subheader("LLM-Governed Market Assistant")
+
+    question = st.text_area(
+        "Open market intelligence question",
+        value="Explain WALMEX.MX in executive terms.",
+        height=90,
+    )
+
+    if not question.strip():
+        st.info("Enter a market intelligence question grounded in the Gold datasets.")
+        return
+
+    response = answer_question_llm(question)
+
+    st.markdown("**Answer**")
+    st.write(response["answer"])
+
+    status_columns = st.columns(3)
+    status_columns[0].metric("Guardrail status", response["guardrail_status"])
+    status_columns[1].metric("LLM enabled", "yes" if response["llm_enabled"] else "no")
+    status_columns[2].metric("Model", response["model"] or "n/a")
+
+    source_datasets = ", ".join(response["source_datasets"]) if response["source_datasets"] else "n/a"
+    st.caption(f"Source datasets: {source_datasets}")
+
+    evidence = response["evidence"]
+    if evidence:
+        with st.expander("Evidence used", expanded=False):
+            st.json(evidence)
+    else:
+        st.info("No evidence was used because the request did not pass guardrails or context was unavailable.")
 
 
 def main() -> None:
@@ -389,6 +425,7 @@ def main() -> None:
     render_liquidity_section(datasets)
     render_ai_insights_section(datasets)
     render_ai_agent_section()
+    render_llm_agent_section()
 
     selected_dataset = st.selectbox("Preview dataset", list(datasets.keys()))
     preview = datasets[selected_dataset].head(20)

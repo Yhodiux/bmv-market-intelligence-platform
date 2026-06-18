@@ -162,7 +162,7 @@ severity
 Business value:
 
 - Provide ready-to-use narratives for analysts.
-- Feed AI Agent responses without inventing facts.
+- Feed Governed AI Agent responses without inventing facts.
 - Support alerting and executive summaries.
 - Convert quantitative signals into business language.
 
@@ -194,11 +194,11 @@ The platform creates business value through repeatable information products:
 | `gold_volatility` | Turns returns into risk signals | Risk intelligence products, alerts, institutional dashboards |
 | `gold_liquidity` | Turns volume into participation and unusual activity signals | Liquidity analytics, issuer relations packages, trading support tools |
 | `gold_market_trends` | Adds sector context and relative behavior | Sector intelligence reports, issuer benchmarking, executive narratives |
-| `gold_ai_insights` | Converts computed signals into explainable business language | AI assistant, automated reports, client-ready insight feeds |
+| `gold_ai_insights` | Converts computed signals into explainable business language | Governed AI assistant, automated reports, client-ready insight feeds |
 
-## AI Grounding
+## Governed AI Grounding
 
-The AI Agent uses Gold datasets as its only source of truth.
+The deterministic Governed AI Agent and the optional LLM-governed assistant use Gold datasets as their only source of truth.
 
 This design keeps the AI behavior controlled:
 
@@ -207,4 +207,4 @@ This design keeps the AI behavior controlled:
 - Unsupported questions return suggested questions.
 - The system avoids external claims and unsupported predictions.
 
-This is intentionally conservative for the MVP. A future LLM integration could improve language quality, but it should still use Gold datasets as the retrieval and grounding layer.
+This is intentionally conservative for the MVP. The current LLM assistant uses structured Gold context rather than open-ended external retrieval. A future larger-scale RAG layer could add documents, reports, or licensed content, but Gold datasets should remain the grounding layer.

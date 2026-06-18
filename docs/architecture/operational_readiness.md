@@ -32,7 +32,7 @@ The MVP already includes:
 - Data quality validation.
 - Pipeline failure when critical quality checks fail.
 - Generated metadata catalog.
-- Automated tests for data products, metadata, API, and AI Agent behavior.
+- Automated tests for data products, metadata, API, and Governed AI Agent behavior.
 - Local API and dashboard services.
 
 ## Failure Handling
@@ -177,7 +177,7 @@ The platform should monitor both data health and service health.
 - Dashboard availability.
 - Page load time.
 - Dataset load failures.
-- User interaction with AI Agent question selector.
+- User interaction with Governed AI Agent question selector.
 
 ## Monitoring Design for Production
 
@@ -199,7 +199,7 @@ Recommended alerts:
 - API error rate exceeds threshold.
 - API latency exceeds threshold.
 - Dashboard cannot load Gold datasets.
-- Unsupported AI Agent question volume increases unexpectedly.
+- Unsupported Governed AI Agent question volume increases unexpectedly.
 
 ## MVP to Production Roadmap
 
@@ -213,7 +213,7 @@ Current state:
 - Data quality checks.
 - FastAPI service.
 - Streamlit dashboard.
-- Deterministic AI Agent.
+- Governed AI Agent.
 - Tests and documentation.
 
 Purpose:
@@ -255,7 +255,7 @@ Purpose:
 
 - Turn Gold datasets into paid data product endpoints.
 
-### Stage 4: AI Assistant with RAG/LLM Grounding
+### Stage 4: Governed AI Assistant with RAG/LLM Grounding
 
 Target capabilities:
 
@@ -310,7 +310,7 @@ The MVP is intentionally local, but it already has the operational foundation ne
 - Reusable Gold data products.
 - Metadata catalog.
 - API and dashboard consumers.
-- AI Agent with bounded behavior.
+- Governed AI Agent with bounded behavior.
 - Tests that validate key contracts.
 
 The next operational step is to add managed orchestration, monitoring, alerts, access control, and usage metering so the platform can support a production and monetized data product model.

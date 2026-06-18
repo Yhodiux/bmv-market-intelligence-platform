@@ -4,7 +4,9 @@
 
 The current MVP runs locally with Docker so any evaluator can reproduce it without cloud accounts, paid services, credentials, or special infrastructure.
 
-The same design can be moved to AWS because the project already separates ingestion, transformation, quality, Gold data products, metadata, API, dashboard, and AI Agent logic. The local Docker setup is the portable execution layer; AWS would provide managed storage, orchestration, serving, monitoring, security, and scale.
+The same design can be moved to AWS because the project already separates ingestion, transformation, quality, Gold data products, metadata, API, dashboard, and Governed AI Agent logic. The local Docker setup is the portable execution layer; AWS would provide managed storage, orchestration, serving, monitoring, security, and scale.
+
+This roadmap describes production evolution options. Airflow, dbt, managed cloud services, LLMs, and RAG are not current MVP dependencies.
 
 ## Current Local Architecture
 
@@ -18,7 +20,7 @@ Docker Compose
   -> Metadata Catalog
   -> FastAPI
   -> Streamlit Dashboard
-  -> Deterministic AI Agent
+  -> Governed AI Agent
 ```
 
 This is intentionally simple for the MVP, but it already follows the same logical layers expected in a production data platform.
@@ -52,7 +54,7 @@ Market Data Sources
 | Data quality script | Glue Data Quality, Great Expectations, or custom validation job | Block bad data before publishing Gold products |
 | FastAPI service | AWS App Runner, ECS Fargate, or Lambda with API Gateway | Serve data products as APIs |
 | Streamlit dashboard | ECS Fargate, App Runner, or internal analytics portal | Business-facing consumption |
-| AI Agent | Bedrock or controlled LLM service grounded in Gold datasets | Natural-language product interface |
+| Governed AI Agent | Bedrock or controlled LLM service grounded in Gold datasets | Natural-language product interface |
 | Local logs | CloudWatch Logs and Metrics | Observability |
 | Local config | SSM Parameter Store or Secrets Manager | Secure configuration and credentials |
 
@@ -84,6 +86,8 @@ Recommended AWS options:
 - EventBridge Scheduler for simple scheduled jobs.
 - Step Functions for explicit workflow states and retries.
 
+Airflow/MWAA is a production orchestration option, not part of the current local MVP.
+
 Workflow:
 
 ```text
@@ -109,6 +113,8 @@ Governance outcomes:
 - Access can be controlled by product, user, or customer segment.
 - Metadata supports auditability and commercial product management.
 
+If the platform moves from file-based Parquet processing into a warehouse or lakehouse modeling layer, dbt could be introduced for SQL-based transformations, model lineage, tests, and documentation. That would be a production modeling evolution, not a current dependency.
+
 ### Phase 4: Serve Data Products
 
 Expose Gold products through APIs and dashboards.
@@ -128,18 +134,18 @@ Commercial outcomes:
 
 ### Phase 5: Add AI Product Layer
 
-The current AI Agent is deterministic and grounded in Gold datasets. In production, an LLM can be added without losing control of the data foundation.
+The current Governed AI Agent is deterministic and grounded in Gold datasets. In production, an LLM can be added without losing control of the data foundation.
 
 Recommended AWS options:
 
 - Amazon Bedrock for managed LLM access.
-- Retrieval layer over Gold datasets and metadata.
+- Retrieval-augmented generation over Gold datasets and metadata.
 - Guardrails that restrict answers to supported market intelligence topics.
 - Prompt templates that require source dataset references.
 
 Principle:
 
-The LLM should improve language quality and user experience, but Gold datasets should remain the source of truth.
+The LLM/RAG layer should improve language quality and user experience, but Gold datasets should remain the source of truth.
 
 ## Operational Readiness
 
@@ -217,5 +223,5 @@ This keeps the architecture understandable, production-oriented, and close to th
 - Add CI/CD for pipeline, API, and dashboard containers.
 - Add customer authentication and entitlement management.
 - Add API usage metering for commercial billing.
-- Add Bedrock-based narrative generation grounded in Gold datasets.
+- Add Bedrock-based LLM/RAG narrative generation grounded in Gold datasets.
 - Add data contracts and schema evolution policies.

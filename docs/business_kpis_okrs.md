@@ -4,7 +4,7 @@
 
 This document connects the market intelligence platform to measurable business outcomes.
 
-The MVP already produces technical and data-product metrics such as row counts, quality status, Gold dataset counts, API responses, and AI Agent guardrail behavior. In production, those metrics can become business KPIs for adoption, monetization, reliability, and customer value.
+The MVP already produces technical and data-product metrics such as row counts, quality status, Gold dataset counts, API responses, and Governed AI Agent guardrail behavior. In production, those metrics can become business KPIs for adoption, monetization, reliability, and customer value.
 
 ## KPI Framework
 
@@ -37,7 +37,7 @@ Key results:
 
 - Provide business-ready products for performance, volatility, liquidity, market trends, and AI-ready insights.
 - Support questions that combine performance, risk, liquidity, and sector context.
-- Expose the same governed datasets through dashboard, API, and AI Agent interfaces.
+- Expose the same governed datasets through dashboard, API, and Governed AI Agent interfaces.
 - Document demo questions that explain the business value to non-technical users.
 
 ### Objective 3: Prepare the Platform for Monetization
@@ -53,10 +53,10 @@ Key results:
 
 Key results:
 
-- Ground AI Agent answers only in Gold datasets.
+- Ground Governed AI Agent answers only in Gold datasets.
 - Return source datasets and supporting data points with answers.
 - Reject unsupported external or predictive questions instead of inventing responses.
-- Maintain automated tests for supported and unsupported AI Agent behavior.
+- Maintain automated tests for supported and unsupported Governed AI Agent behavior.
 
 ## Current MVP Scorecard
 

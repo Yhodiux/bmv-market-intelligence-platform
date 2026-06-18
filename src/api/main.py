@@ -8,7 +8,8 @@ import pandas as pd
 from fastapi import FastAPI, HTTPException, Query
 from pydantic import BaseModel, Field
 
-from src.ai_agent.market_agent import answer_question
+from src.ai_agent.llm_agent import answer_question_llm
+from src.ai_agent.market_agent import SUPPORTED_QUESTIONS, answer_question
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -75,6 +76,15 @@ def datasets() -> dict[str, Any]:
         return json.load(file)
 
 
+@app.get("/questions")
+def questions() -> dict[str, Any]:
+    return {
+        "question_count": len(SUPPORTED_QUESTIONS),
+        "supported_questions": SUPPORTED_QUESTIONS,
+        "guardrail": "Questions must be grounded in the current governed Gold market intelligence datasets.",
+    }
+
+
 @app.get("/performance")
 def performance(
     ticker: str | None = None,
@@ -121,5 +131,17 @@ def ask(request: AskRequest) -> dict[str, Any]:
         return answer_question(request.question)
     except FileNotFoundError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+
+
+@app.post("/ask-llm")
+def ask_llm(request: AskRequest) -> dict[str, Any]:
+    try:
+        return answer_question_llm(request.question)
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+    except RuntimeError as exc:
+        raise HTTPException(status_code=503, detail=str(exc)) from exc
     except ValueError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc

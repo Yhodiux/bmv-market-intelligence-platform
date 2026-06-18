@@ -29,6 +29,16 @@ def test_datasets_endpoint_returns_metadata_catalog() -> None:
     assert payload["dataset_count"] == 7
 
 
+def test_questions_endpoint_returns_supported_questions() -> None:
+    response = client.get("/questions")
+    payload = response.json()
+
+    assert response.status_code == 200
+    assert payload["question_count"] == len(payload["supported_questions"])
+    assert payload["question_count"] == 12
+    assert "guardrail" in payload
+
+
 def test_ask_endpoint_answers_supported_question() -> None:
     response = client.post(
         "/ask",
@@ -51,4 +61,53 @@ def test_ask_endpoint_returns_suggestions_for_unsupported_question() -> None:
     assert response.status_code == 200
     assert payload["data_points"] == []
     assert payload["source_datasets"] == []
-    assert len(payload["supported_questions"]) == 5
+    assert len(payload["supported_questions"]) == 12
+
+
+def test_ask_llm_endpoint_returns_controlled_configuration_message_without_api_key(monkeypatch) -> None:
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    monkeypatch.setenv("ENABLE_LLM_AGENT", "true")
+
+    response = client.post(
+        "/ask-llm",
+        json={"question": "Explain WALMEX.MX in executive terms."},
+    )
+    payload = response.json()
+
+    assert response.status_code == 200
+    assert payload["guardrail_status"] == "llm_not_configured"
+    assert payload["llm_enabled"] is False
+    assert payload["source_datasets"]
+    assert payload["evidence"]
+
+
+def test_ask_llm_endpoint_rejects_out_of_domain_question(monkeypatch) -> None:
+    monkeypatch.setenv("OPENAI_API_KEY", "test-key")
+
+    response = client.post(
+        "/ask-llm",
+        json={"question": "Who won the World Cup?"},
+    )
+    payload = response.json()
+
+    assert response.status_code == 200
+    assert payload["guardrail_status"] == "blocked_out_of_domain"
+    assert payload["llm_enabled"] is False
+    assert payload["source_datasets"] == []
+    assert payload["evidence"] == []
+
+
+def test_ask_llm_endpoint_rejects_predictive_question(monkeypatch) -> None:
+    monkeypatch.setenv("OPENAI_API_KEY", "test-key")
+
+    response = client.post(
+        "/ask-llm",
+        json={"question": "Can you predict next week's price for WALMEX.MX?"},
+    )
+    payload = response.json()
+
+    assert response.status_code == 200
+    assert payload["guardrail_status"] == "blocked_predictive_or_advisory"
+    assert payload["llm_enabled"] is False
+    assert payload["source_datasets"] == []
+    assert payload["evidence"] == []

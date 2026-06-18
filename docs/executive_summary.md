@@ -7,7 +7,7 @@ The BMV Market Intelligence Platform is a local, Docker-based data engineering a
 It transforms public historical market data into governed, reusable, AI-ready data products:
 
 ```text
-Public Market Data -> Raw -> Silver -> Quality -> Gold -> Metadata -> API -> Dashboard -> AI Agent
+Public Market Data -> Raw -> Silver -> Quality -> Gold -> Metadata -> API -> Dashboard -> Governed AI Agent
 ```
 
 The project is designed to be reproducible by an evaluator without BMV credentials, paid services, cloud accounts, or local Python setup.
@@ -36,7 +36,7 @@ The MVP implements:
 - Data quality validation
 - Metadata catalog generation
 - FastAPI data product API
-- Deterministic AI Agent
+- Governed AI Agent
 - Streamlit dashboard
 - Automated tests
 - Architecture and demo documentation
@@ -85,9 +85,9 @@ Gold turns market data into reusable data products:
 
 These datasets support dashboards, APIs, and grounded AI answers.
 
-## AI Strategy
+## Governed AI Strategy
 
-The AI Agent is deterministic and domain-constrained.
+The Governed AI Agent is deterministic and domain-constrained.
 
 It answers supported market intelligence questions using Gold datasets as the source of truth. Unsupported questions return suggested supported questions instead of invented answers.
 
@@ -112,7 +112,7 @@ The analytics view includes risk, volatility, liquidity, unusual volume, and sup
 
 ![Dashboard analytics](screenshots/dashboard_analytics.png)
 
-### AI Agent in Dashboard
+### Governed AI Agent in Dashboard
 
 The dashboard includes AI-ready insights and an embedded Market Intelligence Agent question selector.
 
@@ -166,7 +166,7 @@ docker compose up api
 - Gold datasets framed as monetizable data products
 - Business framing aligned with exchange-style market data products
 - API and dashboard consume the same governed datasets
-- AI Agent is grounded, auditable, and domain-constrained
+- Governed AI Agent is grounded, auditable, and domain-constrained
 - Automated tests validate core behavior
 
 ## Recommended Review Path

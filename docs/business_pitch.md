@@ -25,7 +25,7 @@ The gap is not access to raw data. The gap is turning data into trusted products
 The platform builds a local end-to-end market intelligence product:
 
 ```text
-Public Market Data -> Raw -> Silver -> Quality -> Gold -> Metadata -> API -> Dashboard -> AI Agent
+Public Market Data -> Raw -> Silver -> Quality -> Gold -> Metadata -> API -> Dashboard -> Governed AI Agent
 ```
 
 The MVP uses public Yahoo Finance data for reproducibility, but the architecture is designed around the same product principles needed for BMV-style market intelligence:
@@ -36,7 +36,7 @@ The MVP uses public Yahoo Finance data for reproducibility, but the architecture
 - Metadata catalog.
 - API distribution.
 - Analyst dashboard.
-- Deterministic AI Agent grounded in trusted datasets.
+- Governed AI Agent grounded in trusted datasets.
 
 ## Why This Is More Than a Dashboard
 
@@ -47,7 +47,7 @@ This solution creates reusable data products that can support multiple commercia
 - APIs for external or internal consumers.
 - Dashboards for analysts and executives.
 - Alerts for time-sensitive market signals.
-- AI Agent responses grounded in Gold datasets.
+- Governed AI Agent responses grounded in Gold datasets.
 - Reports generated from curated market intelligence.
 - Future integrations with licensed BMV data sources.
 
@@ -134,7 +134,7 @@ The platform can support several paid product lines:
 | Premium Dashboard | Analysts, executives, issuer relations | Fast monitoring and decision support |
 | Alerting Service | Research, trading support, risk teams | Signals for volatility, volume, and performance changes |
 | Sector Intelligence Reports | Business development, sales, research | Recurring market narratives and issuer comparisons |
-| AI Market Assistant | Business users and analysts | Natural-language access to governed market intelligence |
+| Governed AI Market Assistant | Business users and analysts | Natural-language access to governed market intelligence |
 
 The same data foundation can also support tiering:
 
@@ -148,9 +148,9 @@ The business value can be measured through data quality, freshness, product cove
 
 The KPI and OKR framework is documented in [Business KPIs and OKRs](business_kpis_okrs.md). It connects the current MVP evidence to production metrics such as usage metering, subscription tiers, customer entitlements, SLAs, and monetization readiness.
 
-## AI Value Proposition
+## Governed AI Value Proposition
 
-The AI Agent is intentionally constrained.
+The Governed AI Agent is intentionally constrained.
 
 It answers supported market intelligence questions using Gold datasets as the source of truth. Unsupported questions return suggested supported questions instead of invented answers.
 
@@ -162,7 +162,7 @@ This is important for business adoption because market intelligence needs:
 - Consistent behavior.
 - No unsupported predictions.
 
-The MVP proves that AI can be added as a product interface without losing control of the data foundation.
+The MVP proves that an AI-style interface can be added as a product interface without losing control of the data foundation. It is not presented as a general-purpose LLM agent; its value is grounded, auditable, domain-bounded market intelligence.
 
 ## Why This Can Scale
 

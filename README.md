@@ -5,7 +5,23 @@ Local data engineering MVP for Mexican market intelligence data products.
 The platform transforms public Mexican market data into governed, reusable, AI-ready data products:
 
 ```text
-Public Market Data -> Raw -> Silver -> Quality -> Gold -> Metadata -> API -> AI Agent
+Public Market Data -> Raw -> Silver -> Quality -> Gold -> Metadata -> API -> Governed AI Agent
+```
+
+```mermaid
+flowchart LR
+    Source[Public Market Data] --> Ingestion[Ingestion]
+    Ingestion --> Raw[Raw Parquet]
+    Raw --> Silver[Silver Transformation]
+    Silver --> Quality[Data Quality Gate]
+    Quality --> Gold[Gold Data Products]
+    Gold --> Metadata[Metadata Catalog]
+    Gold --> API[FastAPI]
+    Gold --> Dashboard[Streamlit Dashboard]
+    Gold --> Agent[Governed AI Agent]
+    API --> Users[Business Users]
+    Dashboard --> Users
+    Agent --> Users
 ```
 
 ## Business Value
@@ -20,7 +36,7 @@ The platform helps a market data business, exchange, issuer relations team, or f
 - Offer performance, volatility, liquidity, trend, and AI-ready insight datasets.
 - Expose governed datasets through APIs for downstream customers and applications.
 - Give analysts and business users a dashboard for fast market monitoring.
-- Use an AI Agent that answers only from controlled Gold datasets, reducing hallucination risk.
+- Use a Governed AI Agent that answers only from controlled Gold datasets, reducing hallucination risk.
 - Create a foundation for premium subscriptions, executive reports, alerts, and sector intelligence products.
 
 ## Stock Exchange Business Context
@@ -123,11 +139,23 @@ http://localhost:8000/docs
 | Metadata catalog | `src/metadata/build_metadata.py`, `data/metadata/datasets_metadata.json` |
 | API distribution | `src/api/main.py`, `http://localhost:8000/docs` |
 | Dashboard consumption | `src/dashboard/app.py`, `docs/screenshots/` |
-| AI guardrails | `src/ai_agent/market_agent.py`, `tests/test_market_agent.py` |
+| Governed AI guardrails | `src/ai_agent/market_agent.py`, `tests/test_market_agent.py` |
 | Operational thinking | `docs/architecture/operational_readiness.md` |
 | Cloud evolution | `docs/architecture/cloud_roadmap.md` |
 | Business monetization | `docs/business_pitch.md`, `docs/architecture/data_products.md` |
 | KPIs and OKRs | `docs/business_kpis_okrs.md` |
+
+## Data Engineering Perspective
+
+This repository is structured so reviewers can inspect the engineering decisions directly:
+
+- **Reproducible execution:** Docker Compose runs the pipeline, API, dashboard, and tests without local Python setup.
+- **Layered data architecture:** Raw, Silver, Gold, Metadata, and Quality stages are separated by responsibility.
+- **Quality as a gate:** validation runs before Gold product publication and writes an auditable report.
+- **Data products:** Gold datasets are shaped around business questions, not generic tables.
+- **Consumption interfaces:** the same governed datasets feed API endpoints, dashboard views, the deterministic Governed AI Agent, and the optional LLM-governed assistant.
+- **Governance and operations:** data contracts, operational readiness, KPIs/OKRs, and cloud migration are documented.
+- **Production evolution:** Airflow/MWAA, dbt, cloud storage, API management, usage metering, and larger-scale RAG over documents are roadmap options, not current dependencies.
 
 ## Demo Preview
 
@@ -139,7 +167,11 @@ http://localhost:8000/docs
 
 ![Dashboard analytics](docs/screenshots/dashboard_analytics.png)
 
-### AI Agent
+### Deterministic Governed AI Agent
+
+![Deterministic Governed AI Agent](docs/screenshots/deterministic_agent.png)
+
+### LLM-Governed Market Assistant
 
 ![Dashboard AI Agent](docs/screenshots/dashboard_ai_agent.png)
 
@@ -188,7 +220,9 @@ Available endpoints:
 - `GET /liquidity`
 - `GET /market-trends`
 - `GET /ai-insights`
+- `GET /questions`
 - `POST /ask`
+- `POST /ask-llm`
 
 ## Run Dashboard
 
@@ -204,15 +238,40 @@ Open:
 http://localhost:8501
 ```
 
-## Ask the Agent
+## Ask the Governed AI Agent
 
-The `/ask` endpoint answers supported market intelligence questions using the Gold datasets.
+The platform exposes two governed AI modes:
+
+- `/ask` is deterministic and answers supported business questions with fully auditable logic.
+- `/ask-llm` is an optional LLM-governed assistant that builds structured context from Gold datasets and uses the model only to write a natural-language answer.
+
+Both modes reject out-of-domain questions, forecasts, price targets, and buy/sell recommendations instead of inventing unsupported answers.
 
 ```bash
 curl -X POST http://localhost:8000/ask \
   -H "Content-Type: application/json" \
   -d "{\"question\":\"Which issuers had the best 30-day performance?\"}"
 ```
+
+Use `GET /questions` to list the current governed question set.
+
+Example LLM-governed request:
+
+```bash
+curl -X POST http://localhost:8000/ask-llm \
+  -H "Content-Type: application/json" \
+  -d "{\"question\":\"Explain WALMEX.MX in executive terms.\"}"
+```
+
+The LLM-governed assistant is optional. To enable model-backed answers, set:
+
+```text
+OPENAI_API_KEY=...
+OPENAI_MODEL=gpt-4.1-mini
+ENABLE_LLM_AGENT=true
+```
+
+If `OPENAI_API_KEY` is not configured, `/ask-llm` still returns the Gold evidence packet and a controlled configuration message.
 
 Supported questions include:
 
@@ -221,6 +280,13 @@ Supported questions include:
 - Which sectors show higher volatility?
 - Which companies show unusual volume behavior?
 - What are the most relevant market insights?
+- Which issuers had the weakest 30-day performance?
+- Which issuers have the highest liquidity?
+- Which issuers have high risk levels?
+- Which sectors had the strongest 30-day performance?
+- Show me the latest market snapshot.
+- Summarize WALMEX.MX.
+- Compare WALMEX.MX and CEMEXCPO.MX.
 
 ## Run Tests
 

@@ -12,7 +12,7 @@ The MVP already validates core Raw and Silver quality rules in code. This docume
 - Silver provides cleaned, typed, enriched analytical records.
 - Gold provides business-ready data products shaped around use cases.
 - Metadata describes available datasets and supports discoverability.
-- API and AI Agent consumers should rely on Gold datasets, not Raw files.
+- API and Governed AI Agent consumers should rely on Gold datasets, not Raw files.
 - Critical quality checks must block publication of downstream products.
 
 ## Dataset Ownership
@@ -25,7 +25,7 @@ The MVP already validates core Raw and Silver quality rules in code. This docume
 | Gold | Data product pipeline | Business metrics, rankings, signals, AI-ready products |
 | Metadata | Governance layer | Dataset catalog, descriptions, counts, columns, paths |
 | API | Product serving layer | Expose Gold products to applications and users |
-| Dashboard / AI Agent | Consumption layer | Use governed Gold products for visualization and answers |
+| Dashboard / Governed AI Agent | Consumption layer | Use governed Gold products for visualization and answers |
 
 ## Raw Contract
 
@@ -111,7 +111,7 @@ Primary consumers:
 
 ## Gold Contracts
 
-Gold datasets are product contracts. They are shaped for business consumption, APIs, dashboards, and AI Agent answers.
+Gold datasets are product contracts. They are shaped for business consumption, APIs, dashboards, and Governed AI Agent answers.
 
 ### gold_performance
 
@@ -144,7 +144,7 @@ Business contract:
 Consumers:
 
 - API `/performance`.
-- AI Agent supported performance questions.
+- Governed AI Agent supported performance questions.
 - Dashboard performance rankings.
 
 ### gold_volatility
@@ -177,7 +177,7 @@ Business contract:
 Consumers:
 
 - API `/volatility`.
-- AI Agent supported volatility questions.
+- Governed AI Agent supported volatility questions.
 - Dashboard risk and volatility views.
 
 ### gold_liquidity
@@ -213,7 +213,7 @@ Business contract:
 Consumers:
 
 - API `/liquidity`.
-- AI Agent supported volume questions.
+- Governed AI Agent supported volume questions.
 - Dashboard liquidity and unusual volume sections.
 
 ### gold_market_trends
@@ -281,7 +281,7 @@ Business contract:
 Consumers:
 
 - API `/ai-insights`.
-- AI Agent relevant insight questions.
+- Governed AI Agent relevant insight questions.
 - Dashboard AI insights section.
 - Future executive reports or alert products.
 
@@ -348,7 +348,7 @@ Implemented in the MVP:
 - Non-negative checks for prices and volume.
 - Price consistency checks.
 - Pipeline failure when critical data quality checks fail.
-- Automated tests for Gold outputs, metadata, API behavior, and AI Agent behavior.
+- Automated tests for Gold outputs, metadata, API behavior, and Governed AI Agent behavior.
 
 Recommended production extensions:
 
@@ -367,7 +367,7 @@ Any future schema change should answer:
 - Which dataset contract changes?
 - Is the change backward compatible?
 - Which API endpoint or dashboard view is affected?
-- Which AI Agent question depends on the changed field?
+- Which Governed AI Agent question depends on the changed field?
 - Does the metadata catalog need to be updated?
 - Do tests and quality checks need to be updated?
 

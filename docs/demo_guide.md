@@ -7,7 +7,7 @@ This guide helps reviewers run and evaluate the BMV Market Intelligence Platform
 The demo shows a complete data product flow:
 
 ```text
-Public Market Data -> Raw -> Silver -> Quality -> Gold -> Metadata -> API -> Dashboard -> AI Agent
+Public Market Data -> Raw -> Silver -> Quality -> Gold -> Metadata -> API -> Dashboard -> Governed AI Agent
 ```
 
 ## Prerequisites
@@ -53,7 +53,7 @@ docker compose run --rm tests
 Expected result:
 
 ```text
-9 passed
+23 passed
 ```
 
 The tests validate:
@@ -61,7 +61,7 @@ The tests validate:
 - Gold dataset generation
 - Metadata catalog contents
 - API endpoints
-- AI Agent supported and unsupported question behavior
+- Governed AI Agent supported and unsupported question behavior
 
 ## 3. Review the Dashboard
 
@@ -86,12 +86,14 @@ Recommended dashboard review path:
 5. Review liquidity and unusual volume views.
 6. Review AI-ready insights.
 7. Use the embedded Market Intelligence Agent question selector.
+8. Use the LLM-Governed Market Assistant for open questions grounded in Gold datasets.
 
 Reference screenshots:
 
 - [Dashboard overview](screenshots/dashboard_overview.png)
 - [Dashboard analytics](screenshots/dashboard_analytics.png)
-- [Dashboard AI Agent](screenshots/dashboard_ai_agent.png)
+- [Deterministic Governed AI Agent](screenshots/deterministic_agent.png)
+- [LLM-Governed Market Assistant](screenshots/dashboard_ai_agent.png)
 
 Stop the dashboard with `Ctrl+C`.
 
@@ -119,16 +121,28 @@ GET /volatility
 GET /liquidity
 GET /market-trends
 GET /ai-insights
+GET /questions
 POST /ask
+POST /ask-llm
 ```
 
-Example AI Agent request:
+Example Governed AI Agent request:
 
 ```bash
 curl -X POST http://localhost:8000/ask \
   -H "Content-Type: application/json" \
   -d "{\"question\":\"Which issuers had the best 30-day performance?\"}"
 ```
+
+Example LLM-governed assistant request:
+
+```bash
+curl -X POST http://localhost:8000/ask-llm \
+  -H "Content-Type: application/json" \
+  -d "{\"question\":\"Explain WALMEX.MX in executive terms.\"}"
+```
+
+The LLM-governed assistant requires `OPENAI_API_KEY` for model-backed answers. Without it, the endpoint returns a controlled configuration message and the Gold evidence packet that would be sent to the model.
 
 Reference screenshots:
 
@@ -137,17 +151,39 @@ Reference screenshots:
 
 Stop the API with `Ctrl+C`.
 
-## Supported Agent Questions
+## Governed AI Modes
 
-The AI Agent is deterministic and grounded in the Gold datasets. It does not answer unsupported external questions.
+The platform includes two governed AI modes:
 
-Supported questions:
+- `POST /ask`: deterministic, fully auditable answers for supported business questions.
+- `POST /ask-llm`: optional LLM-governed answers over structured Gold dataset context.
+
+Both modes reject unsupported external questions, forecasts, price targets, and buy/sell recommendations.
+
+Set these variables to enable model-backed LLM answers:
+
+```text
+OPENAI_API_KEY=...
+OPENAI_MODEL=gpt-4.1-mini
+ENABLE_LLM_AGENT=true
+```
+
+## Supported Deterministic Questions
+
+Use `GET /questions` to list the current governed question set. Supported questions include:
 
 - Which issuers had the best 30-day performance?
 - Which issuers show sustained growth with controlled volatility?
 - Which sectors show higher volatility?
 - Which companies show unusual volume behavior?
 - What are the most relevant market insights?
+- Which issuers had the weakest 30-day performance?
+- Which issuers have the highest liquidity?
+- Which issuers have high risk levels?
+- Which sectors had the strongest 30-day performance?
+- Show me the latest market snapshot.
+- Summarize WALMEX.MX.
+- Compare WALMEX.MX and CEMEXCPO.MX.
 
 Unsupported questions return suggested supported questions instead of invented answers.
 
@@ -160,16 +196,20 @@ Use these questions to show business value to non-technical reviewers. The goal 
 | 1 | Which issuers had the best 30-day performance? | Ranks recent observed performance | `gold_performance` | Creates market summary feeds and issuer ranking products |
 | 2 | Which issuers show sustained growth with controlled volatility? | Combines positive 30-day and 90-day returns with Low or Medium risk | `gold_performance`, `gold_volatility` | Helps analysts find stronger risk-return profiles without making predictions |
 | 3 | Which companies show unusual volume behavior? | Detects volume changes versus each issuer's 30-day average | `gold_liquidity` | Supports alerts, market attention monitoring, and issuer relations conversations |
-| 4 | What are the most relevant market insights? | Converts computed signals into business-readable narratives | `gold_ai_insights` | Feeds executive summaries, analyst prompts, and AI assistant responses |
-| 5 | Can you predict next week's stock prices? | Rejects unsupported prediction requests | None | Shows guardrails, avoids unsupported claims, and protects trust |
+| 4 | Compare WALMEX.MX and CEMEXCPO.MX. | Compares two issuers across performance, risk, and liquidity | `gold_performance`, `gold_volatility`, `gold_liquidity` | Demonstrates analyst-style comparisons without external claims |
+| 5 | What are the most relevant market insights? | Converts computed signals into business-readable narratives | `gold_ai_insights` | Feeds executive summaries, analyst prompts, and AI assistant responses |
+| 6 | Who won the World Cup? | Rejects out-of-domain requests | None | Shows domain guardrails and hallucination control |
+| 7 | Can you predict next week's stock prices? | Rejects unsupported prediction requests | None | Shows advisory guardrails, avoids unsupported claims, and protects trust |
 
 Recommended demo order:
 
 1. Start with 30-day performance to show a simple ranking.
 2. Move to sustained growth with controlled volatility to show multi-dataset intelligence.
 3. Ask about unusual volume to show alerting potential.
-4. Ask for relevant insights to show executive-ready interpretation.
-5. Ask for a prediction to prove the agent stays inside its governed scope.
+4. Compare two issuers to show flexible governed analysis.
+5. Ask for relevant insights to show executive-ready interpretation.
+6. Ask an out-of-domain question to prove the agent stays inside its governed scope.
+7. Ask for a prediction to prove it does not provide forecasts or investment advice.
 
 Key message for reviewers:
 
@@ -198,7 +238,8 @@ The agent does not forecast prices or give investment advice. It explains what i
 ### API and AI
 
 - FastAPI endpoints over Gold data products
-- Deterministic AI Agent
+- Deterministic Governed AI Agent
+- LLM-governed assistant over structured Gold context
 - Source datasets returned with answers
 - Unsupported questions handled safely
 
@@ -207,7 +248,8 @@ The agent does not forecast prices or give investment advice. It explains what i
 - Streamlit dashboard
 - Executive metrics
 - Charts and data previews
-- Embedded AI Agent interaction
+- Embedded deterministic agent interaction
+- Embedded LLM-governed assistant interaction
 
 ## Notes
 
