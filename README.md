@@ -143,6 +143,27 @@ ENABLE_LLM_AGENT=true
 
 Create the API key from the OpenAI platform dashboard and make sure billing/credits are enabled before testing model-backed responses. OpenAI API usage can generate costs. Do not commit `.env` or any real API key to the repository.
 
+## Suggested Evaluation Flow
+
+Use the stable review tag:
+
+```bash
+git checkout v1.0-demo
+```
+
+Then review the project in this order:
+
+1. Run `docker compose run --rm pipeline` to build Raw, Silver, Gold, quality, and metadata outputs.
+2. Run `docker compose run --rm tests` to validate the pipeline, API, and governed AI behavior.
+3. Start the dashboard with `docker compose up dashboard` and open `http://localhost:8501`.
+4. Start the API with `docker compose up api` and open `http://localhost:8000/docs`.
+5. Call `GET /questions` to inspect the deterministic governed question set.
+6. Call `POST /ask` with `Which issuers had the best 30-day performance?`.
+7. Call `POST /ask-llm` with `Explain WALMEX.MX in executive terms.`.
+8. Validate guardrails with `Who won the World Cup?` and `Should I buy WALMEX.MX today?`.
+
+The expected result is a complete local market intelligence product: governed datasets, API distribution, dashboard consumption, deterministic question answering, LLM-governed narrative answers, and explicit refusal of unsupported questions.
+
 ## Architecture
 
 - [Business Pitch](docs/business_pitch.md)
@@ -312,4 +333,24 @@ Run the automated test suite with Docker:
 
 ```bash
 docker compose run --rm tests
+```
+
+## Troubleshooting
+
+If ports are already in use, stop the existing local services or change the published ports in `docker-compose.yml`. The default ports are `8000` for FastAPI and `8501` for Streamlit.
+
+If `/ask-llm` returns a configuration message, confirm that `.env` exists, `OPENAI_API_KEY` is set, and the OpenAI account has active billing or credits.
+
+If OpenAI returns quota, billing, or rate-limit errors, the deterministic agent and dashboard still work. The LLM-governed endpoint will return controlled provider error information instead of inventing an answer.
+
+If the pipeline is re-run during local testing, Parquet and metadata files under `data/` may change because fresh Yahoo Finance data was downloaded. To discard local regenerated data after review:
+
+```bash
+git restore data
+```
+
+To stop local services:
+
+```bash
+docker compose down
 ```
