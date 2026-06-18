@@ -162,15 +162,15 @@ ENABLE_LLM_AGENT=true
 
 Create the API key from the OpenAI platform dashboard and make sure billing/credits are enabled before testing model-backed responses. OpenAI API usage can generate costs. Do not commit `.env` or any real API key to the repository.
 
-## Suggested Evaluation Flow
+## Quick Product Tour
 
-Use the stable review tag:
+Use the stable demo tag:
 
 ```bash
 git checkout v1.0-demo
 ```
 
-Then review the project in this order:
+Then explore the platform in this order:
 
 1. Run `docker compose run --rm pipeline` to build Raw, Silver, Gold, quality, and metadata outputs.
 2. Run `docker compose run --rm tests` to validate the pipeline, API, and governed AI behavior.
@@ -183,14 +183,15 @@ Then review the project in this order:
 
 The expected result is a complete local market intelligence product: governed datasets, API distribution, dashboard consumption, deterministic question answering, LLM-governed narrative answers, and explicit refusal of unsupported questions.
 
-## Architecture
+## Documentation
 
-- [Reviewer Guide](docs/reviewer_guide.md)
-- [Business Pitch](docs/business_pitch.md)
 - [Executive Summary](docs/executive_summary.md)
+- [Business Pitch](docs/business_pitch.md)
 - [Monetization Strategy](docs/monetization_strategy.md)
 - [Data Products Catalog](docs/data_products_catalog.md)
 - [Future AWS Architecture](docs/future_aws_architecture.md)
+- [Demo Guide](docs/demo_guide.md)
+- [Reviewer Guide](docs/reviewer_guide.md)
 - [Release Notes v1.0-demo](docs/release_notes_v1_0_demo.md)
 - [Project Status - 2026-06-18](docs/project_status_2026_06_18.md)
 - [Data Flow Architecture](docs/architecture/data_flow.md) including transformation highlights
@@ -199,9 +200,8 @@ The expected result is a complete local market intelligence product: governed da
 - [Operational Readiness](docs/architecture/operational_readiness.md)
 - [Data Products](docs/architecture/data_products.md)
 - [Business KPIs and OKRs](docs/business_kpis_okrs.md)
-- [Demo Guide](docs/demo_guide.md)
 
-## Review Map
+## Platform Components
 
 | Capability | Where to Review |
 | --- | --- |
