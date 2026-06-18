@@ -2,7 +2,9 @@
 
 ## Purpose
 
-The BMV Market Intelligence Platform is a local, Docker-based MVP that transforms public Mexican market data into governed data products and AI-ready answers.
+The BMV Market Intelligence Platform is a local, Docker-based MVP that transforms public Mexican market data into AI-ready data products for Market Intelligence and data monetization.
+
+It is not a trading system, investment recommender, or price prediction platform. Forecasting models are intentionally outside the current MVP and belong only to future roadmap phases after the governed data foundation is in place.
 
 The platform demonstrates the full chain:
 
@@ -244,6 +246,8 @@ The platform exposes a hybrid governed AI layer:
 - `POST /ask-llm` uses an optional LLM-governed assistant. It retrieves structured context from Gold datasets first, then asks the model to write a concise answer from that evidence only.
 
 The value is governance, traceability, and hallucination control: answers are generated only from curated Gold products, include supporting data points, and reject unsupported, out-of-domain, predictive, or advisory questions.
+
+The AI layer is a natural-language access layer over governed Market Intelligence products. It is not designed to forecast prices, produce trading signals, or recommend investment actions.
 
 Supported question families:
 

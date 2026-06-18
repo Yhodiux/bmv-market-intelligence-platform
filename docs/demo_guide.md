@@ -4,6 +4,14 @@
 
 This guide helps reviewers run and evaluate the BMV Market Intelligence Platform locally with Docker.
 
+Core positioning:
+
+```text
+Transforming public market data into AI-ready data products for Market Intelligence and data monetization.
+```
+
+This demo is not about predicting stock prices, recommending trades, or forecasting the market. It is about showing how governed data engineering can produce reusable Gold data products, APIs, dashboards, and AI-enabled natural-language access for Market Intelligence services.
+
 The demo shows a complete data product flow:
 
 ```text
@@ -18,7 +26,7 @@ The recommended review path is:
 4. Review the API.
 5. Test the deterministic governed agent.
 6. Test the LLM-governed assistant.
-7. Validate out-of-domain and investment-advice guardrails.
+7. Validate out-of-domain, forecasting, and investment-advice guardrails.
 
 Stable review version:
 
@@ -195,6 +203,8 @@ The platform includes two governed AI modes:
 
 Both modes reject unsupported external questions, forecasts, price targets, and buy/sell recommendations.
 
+The assistant consumes Gold data products and generates structured market insights. It does not operate as a trading assistant, investment recommender, or price prediction model.
+
 Set these variables to enable model-backed LLM answers:
 
 ```text
@@ -252,6 +262,14 @@ Key message for reviewers:
 The agent does not forecast prices or give investment advice. It explains what is happening in the governed Gold datasets, how issuers compare, and which signals deserve attention.
 ```
 
+Business positioning:
+
+```text
+Data -> Information -> Insights -> Products -> Monetization
+```
+
+The demo should emphasize data engineering, data products, governed AI, reproducibility, APIs, and Market Intelligence monetization.
+
 ## Guardrail Test Cases
 
 Use these cases to show that the assistant is governed by design:
@@ -288,6 +306,7 @@ Use these cases to show that the assistant is governed by design:
 - LLM-governed assistant over structured Gold context
 - Source datasets returned with answers
 - Unsupported questions handled safely
+- Clear refusal of forecasting, trading, and investment recommendation requests
 
 ### Demo Experience
 

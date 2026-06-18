@@ -7,10 +7,12 @@ The platform treats public market data as the input for reusable data products, 
 The value chain is:
 
 ```text
-Raw prices -> Clean signals -> Business metrics -> API products -> AI-ready answers
+Data -> Information -> Insights -> Products -> Monetization
 ```
 
 The Gold layer is where market data becomes monetizable. Each Gold dataset is shaped around a business question that a financial analyst, market data customer, issuer relations team, or intelligence product could consume.
+
+The objective is Market Intelligence, not market prediction. The current products describe, compare, rank, explain, and distribute governed historical signals. They do not produce trading recommendations, investment advice, or price forecasts.
 
 For a stock exchange or market data business, this is the difference between data availability and revenue. Prices and volumes become more valuable when they are governed, compared, ranked, explained, distributed through APIs, and packaged for specific customer workflows.
 
@@ -19,7 +21,7 @@ For a stock exchange or market data business, this is the difference between dat
 | Audience | Needs | Relevant Products |
 | --- | --- | --- |
 | Issuers | Understand market perception, liquidity, and sector comparison | `gold_performance`, `gold_liquidity`, `gold_market_trends` |
-| Brokers and analysts | Screen opportunities, monitor risk, and explain movement | `gold_performance`, `gold_volatility`, `gold_ai_insights` |
+| Brokers and analysts | Monitor market behavior, compare issuers, and explain movement | `gold_performance`, `gold_volatility`, `gold_ai_insights` |
 | Fintechs and data vendors | Integrate reliable enriched market data | All Gold datasets through API |
 | Exchange commercial teams | Support premium data services and issuer conversations | Dashboard, reports, metadata catalog |
 | Executives | Consume concise, explainable market narratives | `gold_ai_insights`, dashboard summaries |
@@ -46,7 +48,7 @@ Business value:
 
 - Rank winners and losers in the Mexican equity universe.
 - Build market summary products.
-- Feed alerts about recent momentum.
+- Feed alerts about observed recent movement.
 - Support issuer comparison dashboards.
 
 Example questions:
@@ -75,7 +77,7 @@ Business value:
 - Classify issuers by risk level.
 - Support risk-aware ranking products.
 - Identify sectors with elevated uncertainty.
-- Combine with performance to find attractive risk-return profiles.
+- Combine with performance to describe issuer risk-return context.
 
 Example questions:
 
@@ -190,9 +192,9 @@ The platform creates business value through repeatable information products:
 
 | Dataset | Product Logic | Revenue Opportunity |
 | --- | --- | --- |
-| `gold_performance` | Turns price history into rankings, momentum, and issuer comparison | Market summary feeds, premium dashboards, analyst subscriptions |
+| `gold_performance` | Turns price history into rankings, observed movement, and issuer comparison | Market summary feeds, premium dashboards, analyst subscriptions |
 | `gold_volatility` | Turns returns into risk signals | Risk intelligence products, alerts, institutional dashboards |
-| `gold_liquidity` | Turns volume into participation and unusual activity signals | Liquidity analytics, issuer relations packages, trading support tools |
+| `gold_liquidity` | Turns volume into participation and unusual activity signals | Liquidity analytics, issuer relations packages, market activity monitoring tools |
 | `gold_market_trends` | Adds sector context and relative behavior | Sector intelligence reports, issuer benchmarking, executive narratives |
 | `gold_ai_insights` | Converts computed signals into explainable business language | Governed AI assistant, automated reports, client-ready insight feeds |
 
@@ -206,5 +208,6 @@ This design keeps the AI behavior controlled:
 - Responses include supporting data points.
 - Unsupported questions return suggested questions.
 - The system avoids external claims and unsupported predictions.
+- The system refuses price forecasts and buy/sell recommendations.
 
 This is intentionally conservative for the MVP. The current LLM assistant uses structured Gold context rather than open-ended external retrieval. A future larger-scale RAG layer could add documents, reports, or licensed content, but Gold datasets should remain the grounding layer.

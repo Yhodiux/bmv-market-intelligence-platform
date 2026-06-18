@@ -2,23 +2,25 @@
 
 ## One-Line Pitch
 
-BMV Market Intelligence Platform turns public Mexican market data into governed, monetizable data products, APIs, dashboards, alerts, and AI-ready insights.
+BMV Market Intelligence Platform transforms public market data into AI-ready data products for Market Intelligence and data monetization.
 
 ## Business Problem
 
 Raw market prices are widely available, but they are not directly monetizable.
 
-For a stock exchange or financial data provider, the business opportunity is not only publishing prices. The commercial value comes from transforming trusted market activity into products that help customers monitor risk, compare issuers, detect liquidity changes, explain market behavior, and make faster decisions.
+For a stock exchange or financial data provider, the business opportunity is not predicting prices. The commercial value comes from transforming trusted market activity into products that help customers monitor risk, compare issuers, detect liquidity changes, explain market behavior, and consume intelligence through governed services.
 
 Business users need curated answers:
 
 - Which issuers are outperforming?
 - Which sectors are showing higher volatility?
-- Which companies have unusual trading activity?
+- Which companies have unusual market activity?
 - Which market signals deserve attention today?
 - Can an AI assistant answer these questions without inventing unsupported claims?
 
 The gap is not access to raw data. The gap is turning data into trusted products that can be sold, reused, audited, and consumed by business teams or external customers.
+
+The project is not positioned as a trading system, investment recommender, or forecasting platform. It is positioned as a reproducible data engineering and AI foundation for Market Intelligence products.
 
 ## Proposed Solution
 
@@ -93,7 +95,7 @@ Commercial use:
 
 ### Liquidity Product
 
-Measures trading activity, liquidity score, and unusual volume behavior.
+Measures market activity, liquidity score, and unusual volume behavior.
 
 Commercial use:
 
@@ -132,7 +134,7 @@ The platform can support several paid product lines:
 | --- | --- | --- |
 | Market Intelligence API | Fintechs, analysts, internal apps | Direct access to curated datasets |
 | Premium Dashboard | Analysts, executives, issuer relations | Fast monitoring and decision support |
-| Alerting Service | Research, trading support, risk teams | Signals for volatility, volume, and performance changes |
+| Alerting Service | Research, market operations, risk teams | Signals for volatility, volume, and performance changes |
 | Sector Intelligence Reports | Business development, sales, research | Recurring market narratives and issuer comparisons |
 | Governed AI Market Assistant | Business users and analysts | Natural-language access to governed market intelligence |
 
@@ -161,6 +163,7 @@ This is important for business adoption because market intelligence needs:
 - Auditable answers.
 - Consistent behavior.
 - No unsupported predictions.
+- No investment advice or buy/sell recommendations.
 
 The MVP proves that an AI-style interface can be added as a product interface without losing control of the data foundation. It is not presented as a general-purpose LLM agent; its value is grounded, auditable, domain-bounded market intelligence.
 
@@ -179,12 +182,14 @@ The same architecture can scale into a production product by adding:
 - LLM-based narrative generation grounded in Gold datasets.
 - Monitoring, SLAs, and data contracts.
 
+Forecasting models, anomaly detection, and personalized recommendations can be added later as product extensions, but they are not part of the current MVP behavior.
+
 ## Final Business Message
 
 This solution demonstrates the commercial path from raw market data to monetizable intelligence:
 
 ```text
-Data quality -> Data products -> API distribution -> Dashboard consumption -> AI interface -> Subscription potential
+Data -> Information -> Insights -> Products -> Monetization
 ```
 
 The result is a platform that can be positioned not as a technical demo, but as the foundation for a market intelligence product line.

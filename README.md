@@ -1,8 +1,10 @@
 # BMV Market Intelligence Platform
 
-Local data engineering MVP for Mexican market intelligence data products.
+Local data engineering and AI MVP for Mexican Market Intelligence data products.
 
-The platform transforms public Mexican market data into governed, reusable, AI-ready data products:
+The platform transforms public market data into AI-ready data products for Market Intelligence and data monetization.
+
+This is not a trading system, price prediction platform, investment recommender, or forecasting product. The goal is to convert public market observations into governed information products that can be distributed through APIs, dashboards, reports, and controlled natural-language interfaces.
 
 ```text
 Public Market Data -> Raw -> Silver -> Quality -> Gold -> Metadata -> API -> Governed AI Agent
@@ -26,9 +28,9 @@ flowchart LR
 
 ## Business Value
 
-This project is not only a price-data pipeline. It demonstrates how market data can be packaged as a business-ready intelligence product.
+This project is not a price prediction exercise. It demonstrates how market data can be packaged as business-ready Market Intelligence products.
 
-The platform is framed from the point of view of a stock exchange or financial data provider: raw trades and prices are inputs, but the business sells trusted information, distribution, analytics, access, and decision support.
+The platform is framed from the point of view of a stock exchange or financial data provider: raw market activity and prices are inputs, but the business sells trusted information, governed distribution, analytics, access, and insight services.
 
 The platform helps a market data business, exchange, issuer relations team, or financial intelligence provider:
 
@@ -38,6 +40,12 @@ The platform helps a market data business, exchange, issuer relations team, or f
 - Give analysts and business users a dashboard for fast market monitoring.
 - Use a Governed AI Agent that answers only from controlled Gold datasets, reducing hallucination risk.
 - Create a foundation for premium subscriptions, executive reports, alerts, and sector intelligence products.
+
+Main message:
+
+```text
+Transforming public market data into AI-ready data products for Market Intelligence and data monetization.
+```
 
 ## Stock Exchange Business Context
 
@@ -203,7 +211,19 @@ This repository is structured so reviewers can inspect the engineering decisions
 - **Data products:** Gold datasets are shaped around business questions, not generic tables.
 - **Consumption interfaces:** the same governed datasets feed API endpoints, dashboard views, the deterministic Governed AI Agent, and the optional LLM-governed assistant.
 - **Governance and operations:** data contracts, operational readiness, KPIs/OKRs, and cloud migration are documented.
-- **Production evolution:** Airflow/MWAA, dbt, cloud storage, API management, usage metering, and larger-scale RAG over documents are roadmap options, not current dependencies.
+- **Production evolution:** Airflow/MWAA, dbt, cloud storage, API management, usage metering, larger-scale RAG over documents, anomaly detection, personalization, and forecasting models are roadmap options, not current dependencies.
+
+## Future Roadmap
+
+The project is positioned as a Market Intelligence and data monetization platform. Predictive models are intentionally outside the MVP and appear only as future product extensions after the governed data foundation is established.
+
+| Phase | Scope | Positioning |
+| --- | --- | --- |
+| Phase 1: Current MVP | Raw/Silver/Gold architecture, quality gates, metadata, APIs, dashboard, deterministic agent, LLM-governed assistant | Market Intelligence data product platform |
+| Phase 2: RAG enrichment | Add licensed documents, issuer reports, metadata search, and LLM retrieval over governed content | Richer natural-language intelligence |
+| Phase 3: Forecasting models | Add Prophet, ARIMA, or LSTM experiments over governed historical datasets | Future advanced analytics capability, not current product behavior |
+| Phase 4: Anomaly detection | Detect unusual volume, volatility, liquidity, or data-quality events with statistical and ML methods | Monitoring and alerting intelligence |
+| Phase 5: Personalized recommendations | Tailor dashboards, alerts, and content by customer role, entitlement, or workflow | Product personalization, not investment advice |
 
 ## Demo Preview
 

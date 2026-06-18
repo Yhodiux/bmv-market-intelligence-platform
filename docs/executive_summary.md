@@ -2,13 +2,21 @@
 
 ## Project Overview
 
-The BMV Market Intelligence Platform is a local, Docker-based data engineering and AI MVP for Mexican market intelligence.
+The BMV Market Intelligence Platform is a local, Docker-based data engineering and AI MVP for Mexican Market Intelligence and data monetization.
 
 It transforms public historical market data into governed, reusable, AI-ready data products:
 
 ```text
 Public Market Data -> Raw -> Silver -> Quality -> Gold -> Metadata -> API -> Dashboard -> Governed AI Agent
 ```
+
+Main message:
+
+```text
+Transforming public market data into AI-ready data products for Market Intelligence and data monetization.
+```
+
+The objective is not to predict the market. This is not a trading system, price forecasting platform, or investment recommender. The objective is to turn public data into governed information products that can power APIs, reports, dashboards, natural-language queries, and premium Market Intelligence services.
 
 The project is designed to be reproducible by an evaluator without BMV credentials, paid services, cloud accounts, or local Python setup.
 
@@ -18,11 +26,19 @@ Public market data is useful, but raw prices alone are not a monetizable product
 
 - Market performance monitoring
 - Risk and volatility intelligence
-- Liquidity and trading activity analysis
+- Liquidity and market activity analysis
 - Sector and issuer trend discovery
 - AI-ready insights grounded in governed datasets
 
 From a stock exchange or financial data provider perspective, this is the core business idea: market activity becomes more valuable when it is governed, packaged, distributed, and explained for specific customers. The MVP therefore demonstrates not only technical data engineering, but also how information can become a commercial product.
+
+The value chain is:
+
+```text
+Data -> Information -> Insights -> Products -> Monetization
+```
+
+The platform extracts actionable intelligence from public market observations by standardizing data, applying quality checks, publishing Gold data products, and exposing them through APIs, dashboards, and governed AI interfaces.
 
 Potential customers include issuers, brokers, analysts, fintechs, data vendors, executive teams, and issuer relations teams.
 
@@ -87,7 +103,7 @@ These datasets support dashboards, APIs, and grounded AI answers.
 
 ## Governed AI Strategy
 
-The Governed AI Agent is deterministic and domain-constrained.
+The Governed AI Agent is deterministic and domain-constrained. The optional LLM-governed assistant writes natural-language explanations from structured Gold evidence.
 
 It answers supported market intelligence questions using Gold datasets as the source of truth. Unsupported questions return suggested supported questions instead of invented answers.
 
@@ -95,8 +111,11 @@ This design demonstrates AI guardrails:
 
 - No external claims
 - No unsupported predictions
+- No investment advice or buy/sell recommendations
 - Source datasets included in responses
 - Structured data points returned with answers
+
+This design demonstrates Advanced Analytics and AI applied to governed Market Intelligence, not open-ended market forecasting.
 
 ## Dashboard Demo
 
@@ -167,6 +186,7 @@ docker compose up api
 - Business framing aligned with exchange-style market data products
 - API and dashboard consume the same governed datasets
 - Governed AI Agent is grounded, auditable, and domain-constrained
+- Clear separation between current descriptive intelligence and future predictive analytics
 - Automated tests validate core behavior
 
 ## Recommended Review Path

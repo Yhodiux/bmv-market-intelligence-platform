@@ -8,6 +8,8 @@ The same design can be moved to AWS because the project already separates ingest
 
 This roadmap describes production evolution options. Airflow, dbt, managed cloud services, LLMs, and RAG are not current MVP dependencies.
 
+The current product position is Market Intelligence and data monetization, not market prediction. Forecasting models are a possible later Advanced Analytics phase, after governance, data quality, product APIs, access control, and commercial packaging are established.
+
 ## Current Local Architecture
 
 ```text
@@ -225,3 +227,13 @@ This keeps the architecture understandable, production-oriented, and close to th
 - Add API usage metering for commercial billing.
 - Add Bedrock-based LLM/RAG narrative generation grounded in Gold datasets.
 - Add data contracts and schema evolution policies.
+
+## Product Roadmap Phases
+
+| Phase | Focus | Description |
+| --- | --- | --- |
+| Phase 1: MVP current state | Market Intelligence foundation | Raw/Silver/Gold architecture, data quality, metadata, APIs, dashboard, deterministic agent, and LLM-governed assistant. |
+| Phase 2: RAG and LLM enrichment | Natural-language intelligence | Add retrieval over licensed documents, issuer reports, metadata, and governed knowledge sources while keeping Gold datasets as source of truth. |
+| Phase 3: Forecasting models | Advanced analytics research | Add Prophet, ARIMA, or LSTM experiments for forecasting use cases as a separate governed product line, not as current MVP behavior. |
+| Phase 4: Anomaly detection | Monitoring and alerting | Detect unusual volume, volatility, liquidity, or operational data-quality events. |
+| Phase 5: Personalized recommendations | Customer-specific experience | Recommend relevant dashboards, alerts, reports, or API products by role, entitlement, and workflow. This should not provide investment advice. |

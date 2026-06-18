@@ -2,6 +2,14 @@
 
 Stable review version for the BMV Market Intelligence Platform.
 
+Positioning:
+
+```text
+Transforming public market data into AI-ready data products for Market Intelligence and data monetization.
+```
+
+This release is not a trading system, investment recommender, price prediction platform, or forecasting product. It demonstrates governed data engineering, data products, APIs, dashboards, and AI-enabled natural-language access over curated Market Intelligence datasets.
+
 ## What This Release Demonstrates
 
 This release packages a local, reproducible market intelligence MVP that turns public Mexican market data into governed data products, API endpoints, dashboard views, and controlled AI-assisted analysis.
@@ -19,6 +27,14 @@ The project is framed as a data product platform for a stock exchange, market da
 - Optional LLM-governed assistant using OpenAI over structured Gold evidence.
 - Guardrails that block out-of-domain questions, forecasts, price targets, and buy/sell recommendations.
 - Documentation for architecture, data products, operations, cloud roadmap, business value, and demo review.
+
+## Roadmap Position
+
+- Phase 1, current MVP: Raw/Silver/Gold architecture, AI agent, APIs, dashboard, and Market Intelligence data products.
+- Phase 2: RAG and LLM enrichment over governed content.
+- Phase 3: Forecasting models such as Prophet, ARIMA, or LSTM as future Advanced Analytics extensions.
+- Phase 4: Anomaly detection for market and operational signals.
+- Phase 5: Personalized recommendations for dashboards, alerts, reports, and API products without investment advice.
 
 ## Review Entry Points
 
