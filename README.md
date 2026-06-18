@@ -263,13 +263,27 @@ curl -X POST http://localhost:8000/ask-llm \
   -d "{\"question\":\"Explain WALMEX.MX in executive terms.\"}"
 ```
 
-The LLM-governed assistant is optional. To enable model-backed answers, set:
+The LLM-governed assistant is optional. To enable model-backed answers, create a local `.env` file from the example file:
+
+```bash
+cp .env.example .env
+```
+
+On Windows PowerShell:
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Then edit `.env` and set:
 
 ```text
-OPENAI_API_KEY=...
+OPENAI_API_KEY=your_openai_api_key_here
 OPENAI_MODEL=gpt-4.1-mini
 ENABLE_LLM_AGENT=true
 ```
+
+Create the API key from the OpenAI platform dashboard and make sure billing/credits are enabled before testing model-backed responses. OpenAI API usage can generate costs. Do not commit `.env` or any real API key to the repository.
 
 If `OPENAI_API_KEY` is not configured, `/ask-llm` still returns the Gold evidence packet and a controlled configuration message.
 
