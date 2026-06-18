@@ -164,10 +164,10 @@ Create the API key from the OpenAI platform dashboard and make sure billing/cred
 
 ## Quick Product Tour
 
-Use the stable demo tag:
+Use the current release candidate:
 
 ```bash
-git checkout v1.0-demo
+git checkout v1.0-rc1
 ```
 
 Then explore the platform in this order:
