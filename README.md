@@ -188,6 +188,7 @@ The expected result is a complete local market intelligence product: governed da
 - [Business Pitch](docs/business_pitch.md)
 - [Executive Summary](docs/executive_summary.md)
 - [Release Notes v1.0-demo](docs/release_notes_v1_0_demo.md)
+- [Project Status - 2026-06-18](docs/project_status_2026_06_18.md)
 - [Data Flow Architecture](docs/architecture/data_flow.md) including transformation highlights
 - [Cloud Roadmap](docs/architecture/cloud_roadmap.md)
 - [Data Contracts](docs/architecture/data_contracts.md)
