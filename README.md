@@ -185,8 +185,12 @@ The expected result is a complete local market intelligence product: governed da
 
 ## Architecture
 
+- [Reviewer Guide](docs/reviewer_guide.md)
 - [Business Pitch](docs/business_pitch.md)
 - [Executive Summary](docs/executive_summary.md)
+- [Monetization Strategy](docs/monetization_strategy.md)
+- [Data Products Catalog](docs/data_products_catalog.md)
+- [Future AWS Architecture](docs/future_aws_architecture.md)
 - [Release Notes v1.0-demo](docs/release_notes_v1_0_demo.md)
 - [Project Status - 2026-06-18](docs/project_status_2026_06_18.md)
 - [Data Flow Architecture](docs/architecture/data_flow.md) including transformation highlights
@@ -209,8 +213,8 @@ The expected result is a complete local market intelligence product: governed da
 | Dashboard consumption | `src/dashboard/app.py`, `docs/screenshots/` |
 | Governed AI guardrails | `src/ai_agent/market_agent.py`, `tests/test_market_agent.py` |
 | Operational thinking | `docs/architecture/operational_readiness.md` |
-| Cloud evolution | `docs/architecture/cloud_roadmap.md` |
-| Business monetization | `docs/business_pitch.md`, `docs/architecture/data_products.md` |
+| Cloud evolution | `docs/future_aws_architecture.md`, `docs/architecture/cloud_roadmap.md` |
+| Business monetization | `docs/reviewer_guide.md`, `docs/business_pitch.md`, `docs/monetization_strategy.md`, `docs/data_products_catalog.md` |
 | KPIs and OKRs | `docs/business_kpis_okrs.md` |
 
 ## Data Engineering Perspective

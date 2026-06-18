@@ -1,195 +1,78 @@
 # Business Pitch
 
-## One-Line Pitch
+## Problem Statement
 
-BMV Market Intelligence Platform transforms public market data into AI-ready data products for Market Intelligence and data monetization.
+Public market data generates business value when it is transformed into consumable information products.
 
-## Business Problem
+Raw prices and trading observations are important inputs, but they are not the final source of differentiated value. For a stock exchange, the strategic opportunity is to convert market activity into governed, reusable, and commercial information services that can support customers, internal teams, and new digital revenue models.
 
-Raw market prices are widely available, but they are not directly monetizable.
+The platform is not designed to predict the market. It is designed to create a trusted data product foundation that turns market observations into intelligence that can be consumed through APIs, dashboards, reports, and AI-enabled interfaces.
 
-For a stock exchange or financial data provider, the business opportunity is not predicting prices. The commercial value comes from transforming trusted market activity into products that help customers monitor risk, compare issuers, detect liquidity changes, explain market behavior, and consume intelligence through governed services.
+## Solution Overview
 
-Business users need curated answers:
+The BMV Market Intelligence Platform transforms public market observations into AI-ready data products and higher-level information services.
 
-- Which issuers are outperforming?
-- Which sectors are showing higher volatility?
-- Which companies have unusual market activity?
-- Which market signals deserve attention today?
-- Can an AI assistant answer these questions without inventing unsupported claims?
+It applies a structured data engineering flow that converts raw market data into curated Gold products for performance, volatility, liquidity, market trends, and AI-ready insights. These products are then exposed through consumption channels such as APIs, an executive dashboard, and a governed AI Market Intelligence Agent.
 
-The gap is not access to raw data. The gap is turning data into trusted products that can be sold, reused, audited, and consumed by business teams or external customers.
+The result is a reproducible MVP that demonstrates how a stock exchange can move from data availability to productized market intelligence.
 
-The project is not positioned as a trading system, investment recommender, or forecasting platform. It is positioned as a reproducible data engineering and AI foundation for Market Intelligence products.
+## Core Capabilities
 
-## Proposed Solution
+### Data Engineering
 
-The platform builds a local end-to-end market intelligence product:
+The platform uses a Raw, Silver, and Gold architecture to organize market observations into governed datasets. This creates a repeatable foundation for quality control, metadata, productization, and downstream consumption.
 
-```text
-Public Market Data -> Raw -> Silver -> Quality -> Gold -> Metadata -> API -> Dashboard -> Governed AI Agent
-```
+### Gold Data Products
 
-The MVP uses public Yahoo Finance data for reproducibility, but the architecture is designed around the same product principles needed for BMV-style market intelligence:
+The Gold layer is the central business asset. It packages market indicators into reusable products such as issuer performance, rolling volatility, liquidity metrics, market trend signals, and AI-ready business insights.
 
-- Governed data layers.
-- Data quality gates.
-- Reusable Gold data products.
-- Metadata catalog.
-- API distribution.
-- Analyst dashboard.
-- Governed AI Agent grounded in trusted datasets.
+### APIs
 
-## Why This Is More Than a Dashboard
+APIs provide a scalable distribution channel for internal applications, external customers, fintechs, brokers, and data partners. They allow market intelligence products to be consumed programmatically and monetized through controlled access.
 
-A dashboard is only one consumption channel.
+### Dashboard
 
-This solution creates reusable data products that can support multiple commercial channels:
+The dashboard gives business users and analysts a visual way to consume curated market intelligence. It supports monitoring, comparison, executive review, and commercial conversations with stakeholders.
 
-- APIs for external or internal consumers.
-- Dashboards for analysts and executives.
-- Alerts for time-sensitive market signals.
-- Governed AI Agent responses grounded in Gold datasets.
-- Reports generated from curated market intelligence.
-- Future integrations with licensed BMV data sources.
+### AI Market Intelligence Agent
 
-The dashboard shows the value, but the Gold datasets and API layer are the monetizable foundation.
+The AI Market Intelligence Agent provides a governed natural-language interface over the Gold data products. It is designed to answer within a controlled market intelligence scope and to avoid unsupported predictions, price targets, or investment recommendations.
 
-## Exchange Business Fit
+## Target Consumers
 
-The platform is aligned with how exchanges and financial information businesses create value from market data:
+- Brokers
+- Fintechs
+- Data vendors
+- Institutional investors
+- Research teams
+- Internal commercial teams
 
-| Business Area | Platform Fit | Commercial Value |
-| --- | --- | --- |
-| Market data distribution | Gold datasets exposed through APIs | Subscription-ready intelligence products |
-| Issuer relations | Issuer performance, sector comparison, liquidity, and trend views | Better conversations with listed companies |
-| Broker and analyst services | Ranked performance, volatility, liquidity, and unusual activity signals | Faster research workflows and differentiated insights |
-| Data vendor and fintech channels | Governed datasets with clear contracts and metadata | Reusable feeds for downstream products |
-| Executive and commercial teams | Dashboard, reports, and AI-ready summaries | Market narratives that support decisions and client engagement |
+## Monetization Opportunities
 
-This matters because a stock exchange sells trust, coverage, timeliness, governance, and interpretation. The MVP demonstrates those capabilities through reproducible data products rather than only through technical infrastructure.
+- API subscriptions
+- Premium datasets
+- Research-as-a-Service
+- Executive dashboards
+- AI-assisted market intelligence
 
-## Productized Gold Datasets
+## Roadmap
 
-### Performance Product
+### Phase 1: Data Products
 
-Ranks issuers by 7-day, 30-day, and 90-day performance.
+Build and govern the foundational data products that describe issuer performance, volatility, liquidity, market trends, and AI-ready insights. This phase establishes the commercial asset base.
 
-Commercial use:
+### Phase 2: Information Products
 
-- Market summaries.
-- Winner and loser rankings.
-- Momentum products.
-- Issuer comparison tools.
+Package the Gold datasets into business-facing products such as executive dashboards, recurring market intelligence reports, premium datasets, sector views, and issuer comparison services.
 
-### Volatility Product
+### Phase 3: AI Services
 
-Measures rolling issuer volatility and classifies risk levels.
+Add governed AI services that consume the established data products. These services can support natural-language market intelligence, assisted research workflows, automated executive summaries, and controlled insight generation.
 
-Commercial use:
+## Closing Message
 
-- Risk intelligence.
-- Sector volatility monitoring.
-- Risk-adjusted issuer screening.
-- Premium risk dashboards.
+This platform does not focus on market prediction.
 
-### Liquidity Product
+Its purpose is to transform market observations into governed data products and monetizable information services. The business value comes from the trusted Gold products and the distribution channels built around them: APIs, dashboards, reports, and AI-assisted services.
 
-Measures market activity, liquidity score, and unusual volume behavior.
-
-Commercial use:
-
-- Liquidity ranking.
-- Unusual activity alerts.
-- Market participation analysis.
-- Institutional research tools.
-
-### Market Trends Product
-
-Compares issuer movement against sector behavior.
-
-Commercial use:
-
-- Sector intelligence.
-- Issuer divergence detection.
-- Executive market narratives.
-- Analyst decision support.
-
-### AI Insights Product
-
-Converts computed market signals into explainable business interpretations.
-
-Commercial use:
-
-- AI-ready insight feeds.
-- Executive summaries.
-- Analyst prompts.
-- Controlled AI assistant responses.
-
-## Monetization Model
-
-The platform can support several paid product lines:
-
-| Product Line | Buyer | Value |
-| --- | --- | --- |
-| Market Intelligence API | Fintechs, analysts, internal apps | Direct access to curated datasets |
-| Premium Dashboard | Analysts, executives, issuer relations | Fast monitoring and decision support |
-| Alerting Service | Research, market operations, risk teams | Signals for volatility, volume, and performance changes |
-| Sector Intelligence Reports | Business development, sales, research | Recurring market narratives and issuer comparisons |
-| Governed AI Market Assistant | Business users and analysts | Natural-language access to governed market intelligence |
-
-The same data foundation can also support tiering:
-
-- Basic tier: delayed market summaries and top rankings.
-- Professional tier: API access, sector dashboards, and issuer-level comparisons.
-- Enterprise tier: custom reports, alerts, entitlements, and AI assistant access.
-
-## KPIs and OKRs
-
-The business value can be measured through data quality, freshness, product coverage, API usage, dashboard adoption, AI guardrail behavior, and customer consumption.
-
-The KPI and OKR framework is documented in [Business KPIs and OKRs](business_kpis_okrs.md). It connects the current MVP evidence to production metrics such as usage metering, subscription tiers, customer entitlements, SLAs, and monetization readiness.
-
-## Governed AI Value Proposition
-
-The Governed AI Agent is intentionally constrained.
-
-It answers supported market intelligence questions using Gold datasets as the source of truth. Unsupported questions return suggested supported questions instead of invented answers.
-
-This is important for business adoption because market intelligence needs:
-
-- Traceability.
-- Guardrails.
-- Auditable answers.
-- Consistent behavior.
-- No unsupported predictions.
-- No investment advice or buy/sell recommendations.
-
-The MVP proves that an AI-style interface can be added as a product interface without losing control of the data foundation. It is not presented as a general-purpose LLM agent; its value is grounded, auditable, domain-bounded market intelligence.
-
-## Why This Can Scale
-
-The current MVP runs locally with Docker and public data so evaluators can reproduce it easily.
-
-The same architecture can scale into a production product by adding:
-
-- Licensed BMV data sources.
-- Scheduled orchestration.
-- Database or lakehouse storage.
-- Authentication and API keys.
-- Customer-specific entitlements.
-- Paid subscription tiers.
-- LLM-based narrative generation grounded in Gold datasets.
-- Monitoring, SLAs, and data contracts.
-
-Forecasting models, anomaly detection, and personalized recommendations can be added later as product extensions, but they are not part of the current MVP behavior.
-
-## Final Business Message
-
-This solution demonstrates the commercial path from raw market data to monetizable intelligence:
-
-```text
-Data -> Information -> Insights -> Products -> Monetization
-```
-
-The result is a platform that can be positioned not as a technical demo, but as the foundation for a market intelligence product line.
+The AI agent is an important consumption interface, but it is not the primary asset. The primary asset is the governed market intelligence product layer that a stock exchange can package, distribute, and monetize.
