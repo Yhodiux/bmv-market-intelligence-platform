@@ -2,7 +2,7 @@
 
 ## Goal
 
-This guide helps reviewers run and evaluate the BMV Market Intelligence Platform locally with Docker.
+This guide helps reviewers run and evaluate the Mexico Equity Intelligence Platform locally with Docker.
 
 Core positioning:
 
@@ -327,6 +327,6 @@ Use these cases to show that the assistant is governed by design:
 
 ## Notes
 
-Yahoo Finance is used as the public technical data source for local reproducibility. The business framing remains Mexican market intelligence related to BMV issuers.
+Yahoo Finance is used as the public technical data source for local reproducibility. The business framing remains focused on Mexican-listed equities and the information needs of capital-market participants.
 
 BMV Web Services are not used in this MVP because they require commercial access, credentials, and controlled connectivity.

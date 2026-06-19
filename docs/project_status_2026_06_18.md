@@ -2,7 +2,7 @@
 
 ## Current Repository State
 
-- Repository: `https://github.com/Yhodiux/bmv-market-intelligence-platform`
+- Repository: `https://github.com/Yhodiux/mexico-equity-intelligence-platform`
 - Branch: `main`
 - Current reviewed commit: `5cd36a0 Point product tour to release candidate`
 - Recommended review tag: `v1.0-rc1`

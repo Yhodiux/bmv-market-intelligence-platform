@@ -2,7 +2,7 @@
 
 ## Project Name
 
-BMV Market Intelligence & Data Products Platform
+Mexico Equity Intelligence & Data Products Platform
 
 ---
 
@@ -86,7 +86,7 @@ Yahoo Finance provides public historical daily market data suitable for the MVP:
 
 Yahoo Finance is used only as the technical data source for the MVP.
 
-The business framing remains focused on the Mexican stock market and BMV-related data products.
+The business framing remains focused on the Mexican stock market and equity intelligence data products.
 
 ---
 
@@ -473,7 +473,7 @@ The AI Agent must not invent numbers. It should answer based on the Gold dataset
 Expected structure:
 
 ```text
-bmv-market-intelligence-platform/
+mexico-equity-intelligence-platform/
 ├── README.md
 ├── docker-compose.yml
 ├── .env.example

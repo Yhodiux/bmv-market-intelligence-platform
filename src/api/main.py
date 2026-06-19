@@ -25,8 +25,8 @@ DATASET_PATHS = {
 }
 
 app = FastAPI(
-    title="BMV Market Intelligence API",
-    description="Local API exposing BMV market intelligence Gold data products.",
+    title="Mexico Equity Intelligence API",
+    description="Local API exposing Mexican equity intelligence Gold data products.",
     version="0.1.0",
 )
 

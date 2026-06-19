@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-The BMV Market Intelligence Platform is a local, Docker-based data engineering and AI MVP for Mexican Market Intelligence and data monetization.
+The Mexico Equity Intelligence Platform is a local, Docker-based data engineering and AI MVP for Mexican Market Intelligence and data monetization.
 
 It transforms public historical market data into governed, reusable, AI-ready data products:
 

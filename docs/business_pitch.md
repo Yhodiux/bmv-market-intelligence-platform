@@ -10,7 +10,7 @@ The platform is not designed to predict the market. It is designed to create a t
 
 ## Solution Overview
 
-The BMV Market Intelligence Platform transforms public market observations into AI-ready data products and higher-level information services.
+The Mexico Equity Intelligence Platform transforms public market observations into AI-ready data products and higher-level information services.
 
 It applies a structured data engineering flow that converts raw market data into curated Gold products for performance, volatility, liquidity, market trends, and AI-ready insights. These products are then exposed through consumption channels such as APIs, an executive dashboard, and a governed AI Market Intelligence Agent.
 

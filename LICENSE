@@ -1,9 +1,18 @@
-Copyright (c) 2026 Yhodiux.
-All rights reserved.
+Copyright (c) 2026 Yhodiux. All rights reserved.
 
-This software is provided as a proprietary market intelligence platform prototype.
-The source code, documentation, data product design, and implementation details
-remain the intellectual property of the author.
+This repository contains a proprietary prototype of an AI-ready Market
+Intelligence Platform.
 
-Any reuse, redistribution, sublicensing, commercial use, or incorporation into
-third-party products or services requires prior written permission.
+Permission is granted to view the contents of this repository solely for
+evaluation and demonstration purposes.
+
+Except where expressly authorized in writing by the copyright holder, you may
+not copy, modify, distribute, sublicense, sell, commercially use, deploy, or
+incorporate any portion of this repository into another product or service.
+
+This restriction does not apply to third-party software, data, trademarks, or
+other materials included in or referenced by this repository. Those materials
+remain subject to their respective licenses and terms.
+
+THE MATERIALS ARE PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED.

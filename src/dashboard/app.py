@@ -393,12 +393,12 @@ def render_llm_agent_section() -> None:
 
 def main() -> None:
     st.set_page_config(
-        page_title="BMV Market Intelligence",
+        page_title="Mexico Equity Intelligence",
         page_icon="chart_with_upwards_trend",
         layout="wide",
     )
 
-    st.title("BMV Market Intelligence Platform")
+    st.title("Mexico Equity Intelligence Platform")
     st.caption("Local dashboard for Gold data products and AI-ready market intelligence.")
 
     datasets = load_gold_datasets()

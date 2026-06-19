@@ -1,8 +1,15 @@
-# BMV Market Intelligence Platform
+# Mexico Equity Intelligence Platform
 
 Transforming public market data into AI-ready data products for Market Intelligence and data monetization.
 
 Local Data Engineering and AI MVP for Mexican Market Intelligence data products.
+
+> [!IMPORTANT]
+> This independent project is not affiliated with, endorsed by, or sponsored by
+> Bolsa Mexicana de Valores, S.A.B. de C.V. or Grupo BMV. "BMV" and related
+> trademarks belong to their respective owners. The reproducible prototype uses
+> public market observations obtained through Yahoo Finance; it does not use or
+> redistribute BMV market data.
 
 ---
 
@@ -96,8 +103,8 @@ No local Python installation, cloud account, API token, paid BMV service, or BMV
 Clone the repository and enter the project folder:
 
 ```bash
-git clone https://github.com/Yhodiux/bmv-market-intelligence-platform.git
-cd bmv-market-intelligence-platform
+git clone https://github.com/Yhodiux/mexico-equity-intelligence-platform.git
+cd mexico-equity-intelligence-platform
 ```
 
 Run the full local pipeline:

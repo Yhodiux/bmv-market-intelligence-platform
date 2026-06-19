@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The BMV Market Intelligence Platform is a local, Docker-based MVP that transforms public Mexican market data into AI-ready data products for Market Intelligence and data monetization.
+The Mexico Equity Intelligence Platform is a local, Docker-based MVP that transforms public Mexican market data into AI-ready data products for Market Intelligence and data monetization.
 
 It is not a trading system, investment recommender, or price prediction platform. Forecasting models are intentionally outside the current MVP and belong only to future roadmap phases after the governed data foundation is in place.
 
@@ -32,7 +32,7 @@ flowchart LR
 
 This MVP does not use BMV Web Services because those services require commercial access, credentials, controlled connectivity, and authorization processes that would make the assessment harder to reproduce.
 
-Yahoo Finance is used through `yfinance` as the technical data source because it provides public historical daily prices without credentials. The business domain remains focused on Mexican market intelligence and BMV-related data products.
+Yahoo Finance is used through `yfinance` as the technical data source because it provides public historical daily prices without credentials. The business domain remains focused on Mexican equity intelligence and related data products.
 
 ## Source Assessment
 

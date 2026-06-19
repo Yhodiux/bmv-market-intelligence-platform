@@ -2,7 +2,7 @@
 
 ## Current Status
 
-The project currently implements the local Raw, Silver, Gold, Metadata, Data Quality, API, Dashboard, AI Agent, documentation, and demo preview layers for the BMV Market Intelligence Platform MVP.
+The project currently implements the local Raw, Silver, Gold, Metadata, Data Quality, API, Dashboard, AI Agent, documentation, and demo preview layers for the Mexico Equity Intelligence Platform MVP.
 
 Current saved status date:
 
@@ -53,7 +53,7 @@ main synchronized with origin/main
 - README business value and monetization strategy sections.
 - README prerequisites section for external local execution.
 - README prerequisites include official Git and Docker Desktop installation links.
-- README Quick Start includes `git clone` and `cd bmv-market-intelligence-platform` before Docker commands.
+- README Quick Start includes `git clone` and `cd mexico-equity-intelligence-platform` before Docker commands.
 - Business pitch document for remote evaluation and business-facing delivery.
 - Streamlit dashboard with Gold dataset preview, executive KPIs, performance charts, risk/volatility charts, liquidity/volume views, AI insights, and an embedded AI Agent question selector.
 - Internal project notes moved under `docs/internal/` so the repository root stays clean for reviewers.
@@ -181,7 +181,7 @@ Silver derived fields include:
 Git may report `dubious ownership` in this environment. For Git inspection commands, use:
 
 ```bash
-git -c safe.directory=F:/Proyectos/bmv-market-intelligence-platform status --short
+git -c safe.directory=F:/Proyectos/mexico-equity-intelligence-platform status --short
 ```
 
 The repository should be clean and synchronized with `origin/main` after saving and pushing this snapshot.
@@ -229,8 +229,8 @@ The project is ready to be sent by repository link and is ready for external tes
 Recommended tester validation:
 
 ```text
-git clone https://github.com/Yhodiux/bmv-market-intelligence-platform.git
-cd bmv-market-intelligence-platform
+git clone https://github.com/Yhodiux/mexico-equity-intelligence-platform.git
+cd mexico-equity-intelligence-platform
 docker compose run --rm pipeline
 docker compose run --rm tests
 docker compose up
@@ -248,9 +248,9 @@ Recommended delivery message:
 ```text
 Hola, comparto el repositorio del proyecto:
 
-https://github.com/Yhodiux/bmv-market-intelligence-platform
+https://github.com/Yhodiux/mexico-equity-intelligence-platform
 
-El proyecto implementa un MVP local de Data Engineering + AI para inteligencia de mercado mexicana/BMV. Incluye pipeline Raw/Silver/Gold, validaciones de calidad, catalogo de metadata, API FastAPI, dashboard Streamlit, AI Agent con respuestas fundamentadas en datasets Gold, documentacion y screenshots de demo.
+El proyecto implementa un MVP local de Data Engineering + AI para inteligencia de renta variable mexicana. Incluye pipeline Raw/Silver/Gold, validaciones de calidad, catalogo de metadata, API FastAPI, dashboard Streamlit, AI Agent con respuestas fundamentadas en datasets Gold, documentacion y screenshots de demo.
 
 Se puede ejecutar localmente con Docker:
 

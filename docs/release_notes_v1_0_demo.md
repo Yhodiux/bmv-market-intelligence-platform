@@ -1,6 +1,6 @@
 # v1.0-demo Release Notes
 
-Stable review version for the BMV Market Intelligence Platform.
+Stable review version for the Mexico Equity Intelligence Platform.
 
 Positioning:
 
