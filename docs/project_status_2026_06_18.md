@@ -4,7 +4,7 @@
 
 - Repository: `https://github.com/Yhodiux/mexico-equity-intelligence-platform`
 - Branch: `main`
-- Current reviewed commit: `5cd36a0 Point product tour to release candidate`
+- Current reviewed commit: `fa39cd3 Rename platform and clarify licensing`
 - Recommended review tag: `v1.0-rc1`
 - Previous stable demo tag: `v1.0-demo`
 - Local status at review time: clean and synchronized with `origin/main`
@@ -78,6 +78,7 @@ Validated locally through Docker:
 ## Remaining Delivery Actions
 
 - Review README visually on GitHub.
+- Rename the local workspace directory from `bmv-market-intelligence-platform` to `mexico-equity-intelligence-platform` after closing the current session.
 - Create or update the GitHub Release for `v1.0-rc1`.
 - Share the repository and `v1.0-rc1` release tag with the evaluator.
 - Share a temporary OpenAI API key separately only if required.
