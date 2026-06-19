@@ -4,8 +4,9 @@
 
 - Repository: `https://github.com/Yhodiux/bmv-market-intelligence-platform`
 - Branch: `main`
-- Current reviewed commit: `0ddedfd Refine project vision and market intelligence positioning`
-- Stable review tag before this status note: `v1.0-demo`
+- Current reviewed commit: `5cd36a0 Point product tour to release candidate`
+- Recommended review tag: `v1.0-rc1`
+- Previous stable demo tag: `v1.0-demo`
 - Local status at review time: clean and synchronized with `origin/main`
 
 ## Current Positioning
@@ -44,7 +45,7 @@ Forecasting, anomaly detection, and personalization are documented only as futur
 
 ## Validated Demo Behavior
 
-Previously validated locally:
+Validated locally through Docker:
 
 - API health endpoint returns `status: ok`.
 - Dashboard loads on `http://localhost:8501`.
@@ -53,7 +54,7 @@ Previously validated locally:
 - `/ask-llm` returns model-backed answers when `OPENAI_API_KEY` is configured.
 - Out-of-domain questions are blocked.
 - Forecasting and investment-advice questions are blocked.
-- Automated tests passed with `23 passed`.
+- Automated tests passed with `docker compose run --rm tests`: `23 passed`.
 
 ## Review Entry Points
 
@@ -77,7 +78,7 @@ Previously validated locally:
 ## Remaining Delivery Actions
 
 - Review README visually on GitHub.
-- Create or update the GitHub Release for `v1.0-demo`.
-- Share the repository and release tag with the evaluator.
+- Create or update the GitHub Release for `v1.0-rc1`.
+- Share the repository and `v1.0-rc1` release tag with the evaluator.
 - Share a temporary OpenAI API key separately only if required.
 - Revoke the temporary API key after review.
