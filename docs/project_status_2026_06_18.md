@@ -4,7 +4,9 @@
 
 - Repository: `https://github.com/Yhodiux/mexico-equity-intelligence-platform`
 - Branch: `main`
-- Release candidate target: `v1.0-rc2`
+- Published release candidate: `v1.0-rc2`
+- Release commit: `f458981 Prepare v1.0-rc2 release documentation`
+- GitHub Release: `https://github.com/Yhodiux/mexico-equity-intelligence-platform/releases/tag/v1.0-rc2`
 - Recommended review tag: `v1.0-rc2`
 - Previous stable demo tag: `v1.0-demo`
 - Local workspace: `F:/Proyectos/mexico-equity-intelligence-platform`
@@ -28,6 +30,8 @@ It is explicitly not positioned as:
 - A quantitative trading model.
 
 Forecasting, anomaly detection, and personalization are documented only as future roadmap phases.
+
+AI-assisted data quality explanations, executive daily market briefs, and AI-assisted metadata enrichment are documented only as Future AI Enhancements. They are not implemented in the current MVP.
 
 ## Current MVP Scope
 
@@ -78,6 +82,6 @@ Validated locally through Docker:
 ## Release Delivery
 
 - Final pipeline, automated test, API, and dashboard validation completed successfully.
-- `v1.0-rc2` is the recommended release candidate for external review.
+- `v1.0-rc2` is published as a GitHub prerelease and is the recommended release candidate for external review.
 - Share the repository and `v1.0-rc2` release tag with the evaluator.
 - Keep all real API keys private and outside the repository.

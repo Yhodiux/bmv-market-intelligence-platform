@@ -10,10 +10,10 @@ Current saved status date:
 2026-06-18 America/Mexico_City
 ```
 
-Release candidate target:
+Published release candidate:
 
 ```text
-v1.0-rc2
+v1.0-rc2 at f458981c15a6e1b29cfc2484f91b50920570f916
 ```
 
 Expected Git status after saving and pushing this snapshot:
@@ -65,6 +65,8 @@ main synchronized with origin/main
 - API, dashboard, public documentation, internal notes, and dashboard screenshot updated with the new identity.
 - README includes a BMV non-affiliation, trademark, and data-source notice.
 - Proprietary license now grants view-only access for evaluation and demonstration and excludes third-party materials.
+- README now documents AI-assisted data quality explanations, executive daily market briefs, and AI-assisted metadata enrichment strictly as future roadmap initiatives outside the current MVP.
+- `v1.0-rc2` release notes, annotated Git tag, and GitHub prerelease were published successfully.
 
 ## Important Adjustments Made
 
@@ -235,7 +237,13 @@ docker compose run --rm tests
 
 ## Final Delivery Status
 
-The project is ready to be sent by repository link and is ready for external tester validation.
+The project is published as `v1.0-rc2`, ready to be sent by repository or release link, and ready for external tester validation.
+
+Release:
+
+```text
+https://github.com/Yhodiux/mexico-equity-intelligence-platform/releases/tag/v1.0-rc2
+```
 
 Recommended tester validation:
 
@@ -277,4 +285,5 @@ La suite de pruebas queda validada con 23 tests passing.
 - Recommended review tag: `v1.0-rc2`
 - Previous stable demo tag: `v1.0-demo`
 - Current public branch: `main`
-- Current state: product and repository renamed, proprietary licensing clarified, BMV references limited to descriptive source context, synchronized with GitHub, and ready for release/tag review.
+- Release commit: `f458981c15a6e1b29cfc2484f91b50920570f916`
+- Current state: `v1.0-rc2` validated and published as a GitHub prerelease; Future AI Enhancements remain documentation-only roadmap items.
