@@ -50,8 +50,7 @@ The project is framed as a data product platform for a stock exchange, market da
 git checkout v1.0-demo
 docker compose run --rm pipeline
 docker compose run --rm tests
-docker compose up dashboard
-docker compose up api
+docker compose up
 ```
 
 Recommended API checks:

@@ -165,16 +165,17 @@ Run tests:
 docker compose run --rm tests
 ```
 
-Start the dashboard:
+Start the dashboard and API:
 
 ```bash
-docker compose up dashboard
+docker compose up
 ```
 
-Start the API:
+Open:
 
-```bash
-docker compose up api
+```text
+http://localhost:8501
+http://localhost:8000/docs
 ```
 
 ## Evaluation Highlights

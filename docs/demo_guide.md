@@ -89,19 +89,22 @@ The tests validate:
 - API endpoints
 - Governed AI Agent supported and unsupported question behavior
 
-## 3. Review the Dashboard
+## 3. Start Runtime Services
 
-Start the dashboard:
+Start the API and dashboard together:
 
 ```bash
-docker compose up dashboard
+docker compose up
 ```
 
-Open:
+Open both local services:
 
 ```text
 http://localhost:8501
+http://localhost:8000/docs
 ```
+
+## 4. Review the Dashboard
 
 Recommended dashboard review path:
 
@@ -121,15 +124,9 @@ Reference screenshots:
 - [Deterministic Governed AI Agent](screenshots/deterministic_agent.png)
 - [LLM-Governed Market Assistant](screenshots/dashboard_ai_agent.png)
 
-Stop the dashboard with `Ctrl+C`.
+Stop the services with `Ctrl+C`.
 
-## 4. Review the API
-
-Start the API:
-
-```bash
-docker compose up api
-```
+## 5. Review the API
 
 Open the interactive FastAPI docs:
 

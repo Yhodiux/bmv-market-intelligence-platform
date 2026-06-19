@@ -1,6 +1,8 @@
 services:
   pipeline:
     image: python:3.11-slim
+    profiles:
+      - tools
     working_dir: /app
     volumes:
       - .:/app
@@ -29,6 +31,8 @@ services:
 
   tests:
     image: python:3.11-slim
+    profiles:
+      - tools
     working_dir: /app
     volumes:
       - .:/app

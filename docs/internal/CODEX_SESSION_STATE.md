@@ -10,13 +10,7 @@ Current saved status date:
 2026-06-18 America/Mexico_City
 ```
 
-The latest pushed commit is:
-
-```text
-3f722d6 Update project status snapshot
-```
-
-Git status after the latest push:
+Expected Git status after saving and pushing this snapshot:
 
 ```text
 main synchronized with origin/main
@@ -179,18 +173,21 @@ Git may report `dubious ownership` in this environment. For Git inspection comma
 git -c safe.directory=F:/Proyectos/bmv-market-intelligence-platform status --short
 ```
 
-The repository was clean and synchronized with `origin/main` after the latest status push to:
+The repository should be clean and synchronized with `origin/main` after saving and pushing this snapshot.
 
-```text
-3f722d6 Update project status snapshot
-```
+## Runtime Services
 
-## API
-
-Start the local API with:
+Start the local API and dashboard together with:
 
 ```bash
-docker compose up api
+docker compose up
+```
+
+Open:
+
+```text
+http://localhost:8501
+http://localhost:8000/docs
 ```
 
 Available endpoints:
@@ -205,20 +202,6 @@ Available endpoints:
 - `GET /questions`
 - `POST /ask`
 - `POST /ask-llm`
-
-## Dashboard
-
-Start the local dashboard with:
-
-```bash
-docker compose up dashboard
-```
-
-Then open:
-
-```text
-http://localhost:8501
-```
 
 ## Tests
 
@@ -239,7 +222,7 @@ git clone https://github.com/Yhodiux/bmv-market-intelligence-platform.git
 cd bmv-market-intelligence-platform
 docker compose run --rm pipeline
 docker compose run --rm tests
-docker compose up dashboard
+docker compose up
 ```
 
 Expected tester outcome:
@@ -247,7 +230,7 @@ Expected tester outcome:
 - Pipeline completes without errors.
 - Tests return `23 passed`.
 - Dashboard opens at `http://localhost:8501`.
-- Optional API opens at `http://localhost:8000/docs`.
+- API docs open at `http://localhost:8000/docs`.
 
 Recommended delivery message:
 
@@ -262,8 +245,7 @@ Se puede ejecutar localmente con Docker:
 
 docker compose run --rm pipeline
 docker compose run --rm tests
-docker compose up dashboard
-docker compose up api
+docker compose up
 
 La suite de pruebas queda validada con 23 tests passing.
 ```

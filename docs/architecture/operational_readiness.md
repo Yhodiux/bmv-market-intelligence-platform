@@ -15,8 +15,7 @@ Core commands:
 ```bash
 docker compose run --rm pipeline
 docker compose run --rm tests
-docker compose up api
-docker compose up dashboard
+docker compose up
 ```
 
 Pipeline execution:

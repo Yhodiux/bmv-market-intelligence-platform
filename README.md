@@ -112,27 +112,16 @@ Run tests:
 docker compose run --rm tests
 ```
 
-Start the dashboard:
+Start the API and dashboard together:
 
 ```bash
-docker compose up dashboard
+docker compose up
 ```
 
-Open:
+Open both local services:
 
 ```text
 http://localhost:8501
-```
-
-Start the API:
-
-```bash
-docker compose up api
-```
-
-Open:
-
-```text
 http://localhost:8000/docs
 ```
 
@@ -174,8 +163,8 @@ Then explore the platform in this order:
 
 1. Run `docker compose run --rm pipeline` to build Raw, Silver, Gold, quality, and metadata outputs.
 2. Run `docker compose run --rm tests` to validate the pipeline, API, and governed AI behavior.
-3. Start the dashboard with `docker compose up dashboard` and open `http://localhost:8501`.
-4. Start the API with `docker compose up api` and open `http://localhost:8000/docs`.
+3. Start both runtime services with `docker compose up`.
+4. Open the dashboard at `http://localhost:8501` and the API docs at `http://localhost:8000/docs`.
 5. Call `GET /questions` to inspect the deterministic governed question set.
 6. Call `POST /ask` with `Which issuers had the best 30-day performance?`.
 7. Call `POST /ask-llm` with `Explain WALMEX.MX in executive terms.`.
@@ -289,10 +278,10 @@ The Gold layer currently generates:
 
 ## Run API
 
-After running the pipeline, start the local API:
+After running the pipeline, start both runtime services:
 
 ```bash
-docker compose up api
+docker compose up
 ```
 
 Available endpoints:
@@ -310,16 +299,17 @@ Available endpoints:
 
 ## Run Dashboard
 
-After running the pipeline, start the local Streamlit dashboard:
+After running the pipeline, start both runtime services:
 
 ```bash
-docker compose up dashboard
+docker compose up
 ```
 
 Open:
 
 ```text
 http://localhost:8501
+http://localhost:8000/docs
 ```
 
 ## Ask the Governed AI Agent

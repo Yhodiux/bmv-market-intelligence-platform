@@ -70,10 +70,10 @@ The pipeline executes:
 4. `src/gold/build_gold.py`
 5. `src/metadata/build_metadata.py`
 
-The API runs separately:
+The API and dashboard runtime services run with:
 
 ```bash
-docker compose up api
+docker compose up
 ```
 
 ## Layers
