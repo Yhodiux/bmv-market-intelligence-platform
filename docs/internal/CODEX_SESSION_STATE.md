@@ -4,10 +4,22 @@
 
 The project currently implements the local Raw, Silver, Gold, Metadata, Data Quality, API, Dashboard, AI Agent, documentation, and demo preview layers for the BMV Market Intelligence Platform MVP.
 
-The latest delivery-content commit is:
+Current saved status date:
 
 ```text
-bced897 Document BMV source assessment
+2026-06-18 America/Mexico_City
+```
+
+The latest pushed commit is:
+
+```text
+3f722d6 Update project status snapshot
+```
+
+Git status after the latest push:
+
+```text
+main synchronized with origin/main
 ```
 
 ## Implemented
@@ -25,6 +37,7 @@ bced897 Document BMV source assessment
 - Dataset metadata catalog under `data/metadata/`.
 - FastAPI service exposing Gold data products.
 - Deterministic AI Agent endpoint grounded in Gold datasets.
+- Optional LLM-governed assistant endpoint grounded in Gold evidence.
 - Automated pytest suite for Gold outputs, metadata, API, and AI Agent behavior.
 - Architecture documentation for data flow and Gold data products.
 - Data flow documentation includes Silver and Gold transformation highlights.
@@ -44,6 +57,7 @@ bced897 Document BMV source assessment
 - Business pitch document for remote evaluation and business-facing delivery.
 - Streamlit dashboard with Gold dataset preview, executive KPIs, performance charts, risk/volatility charts, liquidity/volume views, AI insights, and an embedded AI Agent question selector.
 - Internal project notes moved under `docs/internal/` so the repository root stays clean for reviewers.
+- Project status snapshot updated for the current release candidate.
 
 ## Important Adjustments Made
 
@@ -68,6 +82,7 @@ bced897 Document BMV source assessment
 - `tests/test_metadata.py`
 - `tests/test_market_agent.py`
 - `tests/test_api.py`
+- `tests/test_llm_agent.py`
 - `docs/architecture/data_flow.md`
 - `docs/architecture/data_products.md`
 - `docs/architecture/cloud_roadmap.md`
@@ -133,7 +148,7 @@ It generated:
 - Gold market trends rows: `12,570`
 - Gold AI insights rows: `10`
 
-Post-pipeline tests were executed with:
+Latest test validation was executed with:
 
 ```bash
 docker compose run --rm tests
@@ -142,13 +157,7 @@ docker compose run --rm tests
 Result:
 
 ```text
-9 passed
-```
-
-The latest post-outage validation was also confirmed by the user:
-
-```text
-9 passed
+23 passed
 ```
 
 Silver derived fields include:
@@ -170,10 +179,10 @@ Git may report `dubious ownership` in this environment. For Git inspection comma
 git -c safe.directory=F:/Proyectos/bmv-market-intelligence-platform status --short
 ```
 
-The repository was clean and synchronized with `origin/main` after the latest delivery-content push to:
+The repository was clean and synchronized with `origin/main` after the latest status push to:
 
 ```text
-bced897 Document BMV source assessment
+3f722d6 Update project status snapshot
 ```
 
 ## API
@@ -193,7 +202,9 @@ Available endpoints:
 - `GET /liquidity`
 - `GET /market-trends`
 - `GET /ai-insights`
+- `GET /questions`
 - `POST /ask`
+- `POST /ask-llm`
 
 ## Dashboard
 
@@ -234,7 +245,7 @@ docker compose up dashboard
 Expected tester outcome:
 
 - Pipeline completes without errors.
-- Tests return `9 passed`.
+- Tests return `23 passed`.
 - Dashboard opens at `http://localhost:8501`.
 - Optional API opens at `http://localhost:8000/docs`.
 
@@ -254,5 +265,12 @@ docker compose run --rm tests
 docker compose up dashboard
 docker compose up api
 
-La suite de pruebas queda validada con 9 tests passing.
+La suite de pruebas queda validada con 23 tests passing.
 ```
+
+## Current Release Notes
+
+- Recommended review tag: `v1.0-rc1`
+- Previous stable demo tag: `v1.0-demo`
+- Current public branch: `main`
+- Current state: clean, synchronized with GitHub, and ready for release/tag review.
