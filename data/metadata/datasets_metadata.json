@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-17T20:01:15.274518+00:00",
+  "generated_at": "2026-06-21T01:07:26.128846+00:00",
   "dataset_count": 7,
   "datasets": [
     {
@@ -17,7 +17,7 @@
         "adj_close",
         "volume"
       ],
-      "created_at": "2026-06-17T20:01:15.205313+00:00",
+      "created_at": "2026-06-21T01:07:26.039572+00:00",
       "source": "Yahoo Finance via yfinance",
       "business_description": "Historical daily market prices preserving the source market data structure.",
       "path": "data/raw/market_prices_raw.parquet"
@@ -45,7 +45,7 @@
         "sector",
         "ingestion_timestamp"
       ],
-      "created_at": "2026-06-17T20:01:15.221228+00:00",
+      "created_at": "2026-06-21T01:07:26.061282+00:00",
       "source": "Raw market prices and ticker metadata",
       "business_description": "Cleaned, standardized, and enriched market prices ready for data products.",
       "path": "data/silver/market_prices_silver.parquet"
@@ -66,7 +66,7 @@
         "performance_rank_30d",
         "performance_category"
       ],
-      "created_at": "2026-06-17T20:01:15.232566+00:00",
+      "created_at": "2026-06-21T01:07:26.076040+00:00",
       "source": "Silver market prices",
       "business_description": "Issuer performance product with 7, 30, and 90 day returns and rankings.",
       "path": "data/gold/gold_performance.parquet"
@@ -86,7 +86,7 @@
         "volatility_90d",
         "risk_level"
       ],
-      "created_at": "2026-06-17T20:01:15.243688+00:00",
+      "created_at": "2026-06-21T01:07:26.089633+00:00",
       "source": "Silver market prices",
       "business_description": "Risk product with rolling volatility metrics and risk levels.",
       "path": "data/gold/gold_volatility.parquet"
@@ -109,7 +109,7 @@
         "liquidity_score",
         "liquidity_rank"
       ],
-      "created_at": "2026-06-17T20:01:15.255703+00:00",
+      "created_at": "2026-06-21T01:07:26.104745+00:00",
       "source": "Silver market prices",
       "business_description": "Liquidity product with volume windows, variation, score, and rank.",
       "path": "data/gold/gold_liquidity.parquet"
@@ -130,7 +130,7 @@
         "market_participation",
         "trend_strength"
       ],
-      "created_at": "2026-06-17T20:01:15.266424+00:00",
+      "created_at": "2026-06-21T01:07:26.118864+00:00",
       "source": "Silver market prices",
       "business_description": "Trend product comparing issuer movement, sector returns, and participation.",
       "path": "data/gold/gold_market_trends.parquet"
@@ -151,7 +151,7 @@
         "recommended_question",
         "severity"
       ],
-      "created_at": "2026-06-17T20:01:15.274423+00:00",
+      "created_at": "2026-06-21T01:07:26.128769+00:00",
       "source": "Gold market intelligence signals",
       "business_description": "AI-ready market insight prompts and interpretations grounded in Gold datasets.",
       "path": "data/gold/gold_ai_insights.parquet"

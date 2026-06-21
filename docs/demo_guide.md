@@ -28,10 +28,10 @@ The recommended review path is:
 6. Test the LLM-governed assistant.
 7. Validate out-of-domain, forecasting, and investment-advice guardrails.
 
-Stable review version:
+Final release candidate:
 
 ```text
-v1.0-demo
+v1.0-rc3
 ```
 
 ## Prerequisites

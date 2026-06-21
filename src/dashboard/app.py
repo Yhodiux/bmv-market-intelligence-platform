@@ -256,7 +256,7 @@ def render_risk_section(datasets: dict[str, pd.DataFrame]) -> None:
     )
 
     st.subheader("Risk and Volatility")
-    volatility_column, risk_column = st.columns(2)
+    volatility_column, risk_column = st.columns(2, gap="large")
 
     with volatility_column:
         st.altair_chart(build_sector_volatility_chart(sector_volatility), use_container_width=True)
@@ -295,7 +295,7 @@ def render_liquidity_section(datasets: dict[str, pd.DataFrame]) -> None:
     ]
 
     st.subheader("Liquidity and Unusual Volume")
-    volume_column, liquidity_column = st.columns(2)
+    volume_column, liquidity_column = st.columns(2, gap="large")
 
     with volume_column:
         st.altair_chart(build_volume_variation_chart(unusual_volume), use_container_width=True)
@@ -338,57 +338,61 @@ def render_ai_insights_section(datasets: dict[str, pd.DataFrame]) -> None:
 
 
 def render_ai_agent_section() -> None:
-    st.subheader("Ask the Market Intelligence Agent")
+    with st.container(border=True):
+        st.subheader("Ask the Market Intelligence Agent")
+        st.caption("Explore trusted market intelligence through governed questions backed by Gold datasets.")
 
-    selected_question = st.selectbox("Suggested question", SUPPORTED_QUESTIONS)
-    question = st.text_input("Question", value=selected_question)
-    response = answer_question(question)
+        selected_question = st.selectbox("Suggested question", SUPPORTED_QUESTIONS)
+        question = st.text_input("Question", value=selected_question)
+        response = answer_question(question)
 
-    st.markdown("**Answer**")
-    st.write(response["answer"])
+        st.markdown("**Answer**")
+        st.write(response["answer"])
 
-    source_datasets = ", ".join(response["source_datasets"]) if response["source_datasets"] else "n/a"
-    st.caption(f"Source datasets: {source_datasets}")
+        source_datasets = ", ".join(response["source_datasets"]) if response["source_datasets"] else "n/a"
+        st.caption(f"Source datasets: {source_datasets}")
 
-    data_points = pd.DataFrame(response["data_points"])
-    if not data_points.empty:
-        st.dataframe(data_points, use_container_width=True, hide_index=True)
-    else:
-        st.info("No data points returned for this question.")
+        data_points = pd.DataFrame(response["data_points"])
+        if not data_points.empty:
+            st.dataframe(data_points, use_container_width=True, hide_index=True)
+        else:
+            st.info("No data points returned for this question.")
 
 
 def render_llm_agent_section() -> None:
-    st.subheader("LLM-Governed Market Assistant")
+    with st.container(border=True):
+        st.subheader("LLM-Governed Market Assistant")
+        st.caption("Ask open questions while keeping every response constrained to governed market evidence.")
 
-    question = st.text_area(
-        "Open market intelligence question",
-        value="Explain WALMEX.MX in executive terms.",
-        height=90,
-    )
+        question = st.text_area(
+            "Open market intelligence question",
+            value="Explain WALMEX.MX in executive terms.",
+            height=90,
+        )
 
-    if not question.strip():
-        st.info("Enter a market intelligence question grounded in the Gold datasets.")
-        return
+        if not question.strip():
+            st.info("Enter a market intelligence question grounded in the Gold datasets.")
+            return
 
-    response = answer_question_llm(question)
+        response = answer_question_llm(question)
 
-    st.markdown("**Answer**")
-    st.write(response["answer"])
+        st.markdown("**Answer**")
+        st.write(response["answer"])
 
-    status_columns = st.columns(3)
-    status_columns[0].metric("Guardrail status", response["guardrail_status"])
-    status_columns[1].metric("LLM enabled", "yes" if response["llm_enabled"] else "no")
-    status_columns[2].metric("Model", response["model"] or "n/a")
+        status_columns = st.columns(3)
+        status_columns[0].metric("Guardrail status", response["guardrail_status"])
+        status_columns[1].metric("LLM enabled", "yes" if response["llm_enabled"] else "no")
+        status_columns[2].metric("Model", response["model"] or "n/a")
 
-    source_datasets = ", ".join(response["source_datasets"]) if response["source_datasets"] else "n/a"
-    st.caption(f"Source datasets: {source_datasets}")
+        source_datasets = ", ".join(response["source_datasets"]) if response["source_datasets"] else "n/a"
+        st.caption(f"Source datasets: {source_datasets}")
 
-    evidence = response["evidence"]
-    if evidence:
-        with st.expander("Evidence used", expanded=False):
-            st.json(evidence)
-    else:
-        st.info("No evidence was used because the request did not pass guardrails or context was unavailable.")
+        evidence = response["evidence"]
+        if evidence:
+            with st.expander("Evidence used", expanded=False):
+                st.json(evidence)
+        else:
+            st.info("No evidence was used because the request did not pass guardrails or context was unavailable.")
 
 
 def main() -> None:
@@ -421,12 +425,20 @@ def main() -> None:
 
     render_executive_kpis(datasets, status)
     render_performance_rankings(datasets)
+    st.divider()
     render_risk_section(datasets)
+    st.divider()
     render_liquidity_section(datasets)
+    st.divider()
     render_ai_insights_section(datasets)
+
+    st.divider()
+    st.header("Governed Market Intelligence")
+    st.caption("Turn trusted Gold data products into auditable answers and executive explanations.")
     render_ai_agent_section()
     render_llm_agent_section()
 
+    st.divider()
     selected_dataset = st.selectbox("Preview dataset", list(datasets.keys()))
     preview = datasets[selected_dataset].head(20)
 

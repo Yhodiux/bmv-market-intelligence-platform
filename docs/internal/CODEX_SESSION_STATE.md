@@ -7,13 +7,13 @@ The project currently implements the local Raw, Silver, Gold, Metadata, Data Qua
 Current saved status date:
 
 ```text
-2026-06-18 America/Mexico_City
+2026-06-20 America/Mexico_City
 ```
 
-Published release candidate:
+Final release candidate:
 
 ```text
-v1.0-rc2 at f458981c15a6e1b29cfc2484f91b50920570f916
+v1.0-rc3 (validated and approved for publication)
 ```
 
 Expected Git status after saving and pushing this snapshot:
@@ -237,12 +237,12 @@ docker compose run --rm tests
 
 ## Final Delivery Status
 
-The project is published as `v1.0-rc2`, ready to be sent by repository or release link, and ready for external tester validation.
+The `v1.0-rc3` candidate has passed the full pipeline, automated tests, API health check, and dashboard availability check and is approved as the final external review release candidate.
 
 Release:
 
 ```text
-https://github.com/Yhodiux/mexico-equity-intelligence-platform/releases/tag/v1.0-rc2
+https://github.com/Yhodiux/mexico-equity-intelligence-platform/releases/tag/v1.0-rc3
 ```
 
 Recommended tester validation:
@@ -282,8 +282,8 @@ La suite de pruebas queda validada con 23 tests passing.
 
 ## Current Release Notes
 
-- Recommended review tag: `v1.0-rc2`
-- Previous stable demo tag: `v1.0-demo`
+- Target review tag: `v1.0-rc3`
+- Previous release candidate: `v1.0-rc2`
 - Current public branch: `main`
-- Release commit: `f458981c15a6e1b29cfc2484f91b50920570f916`
-- Current state: `v1.0-rc2` validated and published as a GitHub prerelease; Future AI Enhancements remain documentation-only roadmap items.
+- Release state: identified by the annotated `v1.0-rc3` tag
+- Current state: `v1.0-rc3` validated and approved as the final external review release candidate.

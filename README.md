@@ -1,18 +1,16 @@
 # Mexico Equity Intelligence Platform
 
-Transforming public market data into AI-ready data products for Market Intelligence and data monetization.
-
-Local Data Engineering and AI MVP for Mexican Market Intelligence data products.
+> *Transforming market activity into governed, AI-ready data products that power financial intelligence.*
 
 ---
 
 ## Project Vision
 
-This platform demonstrates how public market data can be transformed into AI-ready data products through Data Engineering, Market Intelligence and Artificial Intelligence.
+This platform applies Data Engineering, Market Intelligence and Artificial Intelligence to turn public Mexican equity observations into trusted information assets.
 
-The focus is on converting market observations into governed information products that can be delivered through APIs, dashboards, reports and controlled AI services.
+Those assets are governed, reusable and designed for delivery through APIs, dashboards, reports and controlled AI services.
 
-The goal is to enable Market Intelligence and data monetization through reusable and AI-ready data products.
+The result is a practical foundation for financial intelligence and data monetization, built as a reproducible local MVP.
 
 ---
 
@@ -153,10 +151,10 @@ Create the API key from the OpenAI platform dashboard and make sure billing/cred
 
 ## Quick Product Tour
 
-Use the current release candidate:
+Use the final release candidate:
 
 ```bash
-git checkout v1.0-rc2
+git checkout v1.0-rc3
 ```
 
 Then explore the platform in this order:
@@ -190,8 +188,8 @@ It is intended for business leaders, data leaders, technology stakeholders, and 
 - [Future AWS Architecture](docs/future_aws_architecture.md)
 - [Demo Guide](docs/demo_guide.md)
 - [Reviewer Guide](docs/reviewer_guide.md)
-- [Release Notes v1.0-rc2](docs/release_notes_v1_0_rc2.md)
-- [Project Status - 2026-06-18](docs/project_status_2026_06_18.md)
+- [Release Notes v1.0-rc3](docs/release_notes_v1_0_rc3.md)
+- [Project Status - 2026-06-20](docs/project_status_2026_06_20.md)
 - [Data Flow Architecture](docs/architecture/data_flow.md) including transformation highlights
 - [Cloud Roadmap](docs/architecture/cloud_roadmap.md)
 - [Data Contracts](docs/architecture/data_contracts.md)
