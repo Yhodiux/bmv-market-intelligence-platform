@@ -13,7 +13,7 @@ Current saved status date:
 Final release candidate:
 
 ```text
-v1.0-rc3 (validated and approved for publication)
+v1.0-rc3 at 5d4bcd86c58e84e02d4ed3f7fde31737cccdf41c (published)
 ```
 
 Expected Git status after saving and pushing this snapshot:
@@ -67,6 +67,8 @@ main synchronized with origin/main
 - Proprietary license now grants view-only access for evaluation and demonstration and excludes third-party materials.
 - README now documents AI-assisted data quality explanations, executive daily market briefs, and AI-assisted metadata enrichment strictly as future roadmap initiatives outside the current MVP.
 - `v1.0-rc2` release notes, annotated Git tag, and GitHub prerelease were published successfully.
+- `v1.0-rc3` was validated as the final external review candidate, tagged, pushed, and published as a GitHub prerelease.
+- Dashboard screenshots were refreshed after the final visual hierarchy improvements.
 
 ## Important Adjustments Made
 
@@ -237,7 +239,7 @@ docker compose run --rm tests
 
 ## Final Delivery Status
 
-The `v1.0-rc3` candidate has passed the full pipeline, automated tests, API health check, and dashboard availability check and is approved as the final external review release candidate.
+The `v1.0-rc3` candidate passed the full pipeline, automated tests, API health check, and dashboard availability check. Commit `5d4bcd8`, the annotated tag, and the GitHub prerelease are published and accessible.
 
 Release:
 
@@ -282,8 +284,15 @@ La suite de pruebas queda validada con 23 tests passing.
 
 ## Current Release Notes
 
-- Target review tag: `v1.0-rc3`
+- Recommended review tag: `v1.0-rc3`
 - Previous release candidate: `v1.0-rc2`
 - Current public branch: `main`
-- Release state: identified by the annotated `v1.0-rc3` tag
-- Current state: `v1.0-rc3` validated and approved as the final external review release candidate.
+- Release commit: `5d4bcd86c58e84e02d4ed3f7fde31737cccdf41c`
+- Release state: annotated tag and GitHub prerelease published successfully
+- Current state: `v1.0-rc3` is the final external review release candidate and is ready to share.
+
+## Optional Temporary Demo
+
+- A short-lived EC2 deployment may be created manually to simplify reviewer access.
+- This deployment is not part of the repository, README, release scope, or official local architecture.
+- Any OpenAI API key must remain server-side, access must be restricted, and the instance and dedicated key must be removed after the review window.
